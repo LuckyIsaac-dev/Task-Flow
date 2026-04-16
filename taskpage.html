@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/taskpage.css" />
+    <title>Tasks</title>
+  </head>
+  <body>
+    <main>
+      <div class="overlay-container hidden">
+        <div class="overlay">
+          <div class="">
+            <input type="text" id="edited-tasks" placeholder="Edit Task" />
+          </div>
+          <button class="save">Save</button>
+        </div>
+      </div>
+      <div class="container-grid">
+        <div class="nav">
+          <div class="container-nav">
+            <a href=""> Today </a>
+            <a href="">Tomorrow</a>
+            <a href="">Weekly Report</a><a href="">Check out</a>
+          </div>
+        </div>
+        <div class="content1">
+          <h2>19<span class="heading">june</span></h2>
+          <p>Today's Task:</p>
+          <input type="text" id="todo" placeholder="+ New task" />
+          <div class="content"></div>
+          <!-- <div>
+            <h3>Completed Task</h3>
+            <p>Monthly 1-1</p>
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <script src="scripts/task-page.js"></script>
+  </body>
+</html>
