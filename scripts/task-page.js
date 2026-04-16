@@ -12,8 +12,7 @@ let todoList = [
   { userTask: "Code javascript", id: crypto.randomUUID() },
 ];
 renderTodo();
-editTask();
-addEvent();
+
 let saveID;
 function editTask() {
   document.querySelectorAll(".edit").forEach((editButton) => {
@@ -45,8 +44,7 @@ function editUserTask(taskId, editedMessage) {
 document.querySelector(".save").addEventListener("click", () => {
   editUserTask(saveID, modelInput.value);
   renderTodo();
-  editTask();
-  addEvent();
+
   document.querySelector(".overlay-container").classList.add("hidden");
 });
 
@@ -64,8 +62,6 @@ todoInput.addEventListener("keydown", (e) => {
 
     todoInput.value = "";
     renderTodo();
-    editTask();
-    addEvent();
   }
 });
 
@@ -92,6 +88,8 @@ function renderTodo() {
     todoListHTML += html;
   });
   document.querySelector(".content").innerHTML = todoListHTML;
+  editTask();
+  addEvent();
 }
 function addEvent() {
   document.querySelectorAll(".delete").forEach((deleteButton) => {
@@ -108,8 +106,6 @@ function deleteTask(taskId) {
   });
   todoList = newTodo;
   renderTodo();
-  editTask();
-  addEvent();
 }
 
 function outerFunction() {
