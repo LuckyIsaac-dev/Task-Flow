@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/taskpage.css" />
     <title>Tasks</title>
   </head>
   <body>
     <main>
+      <!-- OVERLAY CONTAINER AND SEARCH INPUT -->
       <div class="overlay-container hidden">
         <div class="overlay">
           <div class="">
@@ -16,23 +23,66 @@
           <button class="save">Save</button>
         </div>
       </div>
-      <div class="container-grid">
-        <div class="nav">
-          <div class="container-nav">
-            <a href=""> Today </a>
-            <a href="">Tomorrow</a>
-            <a href="">Weekly Report</a><a href="">Check out</a>
+
+      <div class="search">
+        <input type="text" placeholder="search for task" />
+      </div>
+
+      <div class="grid-container">
+        <!-- NAV LINKS  -->
+        <nav class="nav">
+          <div class="nav-main-container">
+            <div class="logo-container">
+              <h1 class="logo-heading">
+                <span class="task-logo">task</span>flow
+              </h1>
+            </div>
+
+            <div class="nav-links">
+              <img class="nav-icon" src="images/icons8-inbox-50.png" alt="" />
+              <a href="">Inbox</a>
+            </div>
+
+            <div class="nav-links">
+              <img class="nav-icon" src="images/icons8-today-50.png" alt="" />
+
+              <a href="">Today</a>
+            </div>
+            <div class="nav-links">
+              <img class="nav-icon" src="images/icons8-15-48.png" alt="" />
+
+              <a href="">Upcoming</a>
+            </div>
+            <div class="nav-links">
+              <img
+                class="nav-icon"
+                src="images/icons8-calendar-50.png"
+                alt=""
+              />
+
+              <a href="">Calendar</a>
+            </div>
+            <div class="nav-links">
+              <img
+                class="nav-icon"
+                src="images/icons8-analysis-50.png"
+                alt=""
+              />
+
+              <a href="">Analysis</a>
+            </div>
           </div>
-        </div>
-        <div class="content1">
-          <h2>19<span class="heading">june</span></h2>
-          <p>Today's Task:</p>
-          <input type="text" id="todo" placeholder="+ New task" />
-          <div class="content"></div>
-          <!-- <div>
-            <h3>Completed Task</h3>
-            <p>Monthly 1-1</p>
-          </div> -->
+        </nav>
+
+        <div class="main-content">
+          <h2 class="main-content-heading">Inbox</h2>
+          <button class="add-task hidden">+ Add task</button>
+          <div class="js-content"></div>
+          <button class="js-add-button">
+            <span class="plus-sign">+</span>
+            <span class="button-placeholder">Add task</span>
+          </button>
+          <input type="text" id="todo" placeholder="+ Add task" />
         </div>
       </div>
     </main>
