@@ -37,7 +37,7 @@ body {
   grid-template-columns: 300px 1fr;
   /* max-width: 800px; */
   grid-template-rows: 1fr;
-  min-height: 800px;
+  min-height: 100vh;
   gap: 10px;
 }
 
@@ -49,7 +49,9 @@ body {
 }
 
 .nav-main-container {
-  height: 180px;
+  /* height: 180px; */
+  position: fixed;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -158,13 +160,29 @@ body {
 .edit-icon,
 .delete-icon {
   width: 20px;
-  opacity: 50%;
+  opacity: 0;
+  /* visibility: hidden; */
+  transform: translateX(10px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  pointer-events: none;
 }
 #todo::placeholder {
   font-size: 12px;
   letter-spacing: 1px;
 }
 
+.tasks-container:hover .delete-icon {
+  opacity: 50%;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+.tasks-container:hover .edit-icon {
+  opacity: 50%;
+  pointer-events: auto;
+  transform: translateX(0);
+}
 .overlay {
   max-width: 500px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.12);
@@ -202,7 +220,6 @@ body {
 }
 
 .hidden {
-  /* display: none; */
   visibility: hidden;
 }
 .js-add-button {

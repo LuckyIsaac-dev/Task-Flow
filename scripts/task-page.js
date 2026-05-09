@@ -90,10 +90,10 @@ function renderTodo() {
     </div>
     <div class="editing-container-${todo.id}">
       <span class="edit" data-task-id="${todo.id}">
-      <img class="edit-icon js-edit-icon-${todo.id} hidden " src="images/icons8-pencil-24.png" alt="edit-task" />
+      <img class="edit-icon" src="images/icons8-pencil-24.png" alt="edit-task" />
       </span>
       <span class="delete" data-task-id="${todo.id}"> 
-          <img data-task-id="${todo.id}" class="delete-icon js-icon-${todo.id} hidden " src="images/icons8-trash-24.png" alt="trash icon">
+          <img data-task-id="${todo.id}" class="delete-icon" src="images/icons8-trash-24.png" alt="trash icon">
       </span>
     </div>
    
@@ -106,29 +106,31 @@ function renderTodo() {
   renderOverlay();
   deleteTask();
 }
-document.querySelectorAll(".tasks-container").forEach((container) => {
-  container.addEventListener("mouseenter", (e) => {
-    let containerId = e.target.dataset.taskId;
-    document
-      .querySelector(`.js-icon-${containerId}`)
-      .classList.remove("hidden");
-    document
-      .querySelector(`.js-edit-icon-${containerId}`)
-      .classList.remove("hidden");
-  });
-});
+// ---------------- USED CSS TO HANDLE THIS EVENT ----------------//
+// function mouseMovement() {
+//   document.querySelectorAll(".tasks-container").forEach((container) => {
+//     container.addEventListener("mouseenter", (e) => {
+//       let containerId = e.target.dataset.taskId;
+//       document
+//         .querySelector(`.js-icon-${containerId}`)
+//         .classList.remove("hidden");
+//       document
+//         .querySelector(`.js-edit-icon-${containerId}`)
+//         .classList.remove("hidden");
+//     });
+//   });
 
-document.querySelectorAll(".tasks-container").forEach((container) => {
-  container.addEventListener("mouseleave", (e) => {
-    let containerId = e.target.dataset.taskId;
+//   document.querySelectorAll(".tasks-container").forEach((container) => {
+//     container.addEventListener("mouseleave", (e) => {
+//       let containerId = e.target.dataset.taskId;
 
-    document.querySelector(`.js-icon-${containerId}`).classList.add("hidden");
-    document
-      .querySelector(`.js-edit-icon-${containerId}`)
-      .classList.add("hidden");
-  });
-});
-
+//       document.querySelector(`.js-icon-${containerId}`).classList.add("hidden");
+//       document
+//         .querySelector(`.js-edit-icon-${containerId}`)
+//         .classList.add("hidden");
+//     });
+//   });
+// }
 function deleteTask() {
   document.querySelector(".js-content").addEventListener("click", (e) => {
     const deletButton = e.target.closest(".delete-icon");
@@ -154,6 +156,6 @@ function deleteTask() {
   // });
 }
 
-if (todoList.length > 0) {
-  todoInput.classList.add("hidden");
-}
+// if (todoList.length > 0) {
+//   todoInput.classList.add("hidden");
+// }
