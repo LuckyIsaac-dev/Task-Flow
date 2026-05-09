@@ -14,13 +14,6 @@ let modelInput = document.getElementById("edited-tasks");
 // PRACTICE CODE FOR WHEN AN ELEMENT LOSES FOCUS
 
 let todoInput = document.getElementById("todo");
-todoInput.addEventListener("focus", (e) => {
-  console.log(e);
-  document.querySelector(".add-task").classList.remove("hidden");
-});
-todoInput.addEventListener("focusout", () => {
-  document.querySelector(".add-task").classList.add("hidden");
-});
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
@@ -40,7 +33,7 @@ function renderOverlay() {
 
       todoList.forEach((task) => {
         if (taskId === task.id) {
-          //when we find a matching id we re-render the task in a pop up and the task in a input filed
+          //when we find a matching id we re-render the task in a pop up and the task in the input filed
           document
             .querySelector(".overlay-container")
             .classList.remove("hidden");
@@ -100,9 +93,10 @@ function renderTodo() {
       <img class="edit-icon js-edit-icon-${todo.id} hidden " src="images/icons8-pencil-24.png" alt="edit-task" />
       </span>
       <span class="delete" data-task-id="${todo.id}"> 
-          <img class="delete-icon js-icon-${todo.id} hidden " src="images/icons8-trash-24.png" alt="trash icon">
+          <img data-task-id="${todo.id}" class="delete-icon js-icon-${todo.id} hidden " src="images/icons8-trash-24.png" alt="trash icon">
       </span>
     </div>
+   
   </div>
   
   `;
@@ -110,10 +104,10 @@ function renderTodo() {
   });
   document.querySelector(".js-content").innerHTML = todoListHTML;
   renderOverlay();
-  addDeleteEvent();
+  deleteTask();
 }
 document.querySelectorAll(".tasks-container").forEach((container) => {
-  container.addEventListener("mouseover", (e) => {
+  container.addEventListener("mouseenter", (e) => {
     let containerId = e.target.dataset.taskId;
     document
       .querySelector(`.js-icon-${containerId}`)
@@ -123,9 +117,11 @@ document.querySelectorAll(".tasks-container").forEach((container) => {
       .classList.remove("hidden");
   });
 });
+
 document.querySelectorAll(".tasks-container").forEach((container) => {
-  container.addEventListener("mouseout", (e) => {
+  container.addEventListener("mouseleave", (e) => {
     let containerId = e.target.dataset.taskId;
+
     document.querySelector(`.js-icon-${containerId}`).classList.add("hidden");
     document
       .querySelector(`.js-edit-icon-${containerId}`)
@@ -133,64 +129,31 @@ document.querySelectorAll(".tasks-container").forEach((container) => {
   });
 });
 
-function addDeleteEvent() {
-  document.querySelectorAll(".delete").forEach((deleteButton) => {
-    deleteButton.addEventListener("click", () => {
-      const taskId = deleteButton.dataset.taskId;
-      deleteTask(taskId);
-    });
-  });
-}
+function deleteTask() {
+  document.querySelector(".js-content").addEventListener("click", (e) => {
+    const deletButton = e.target.closest(".delete-icon");
+    if (deletButton) {
+      const taskId = deletButton.dataset.taskId;
+      const taskItem = deletButton.closest(".tasks-container");
 
-function deleteTask(taskId) {
-  let newTodo = todoList.filter((task) => {
-    return task.id !== taskId;
+      taskItem.remove();
+
+      let newTodo = todoList.filter((task) => {
+        return task.id !== taskId;
+      });
+      todoList = newTodo;
+    }
   });
-  todoList = newTodo;
-  renderTodo();
+  // ------------ USING INDIVIDUAL LISTERNER ------------ //
+
+  // document.querySelectorAll(".delete").forEach((deleteButton) => {
+  //   deleteButton.addEventListener("click", () => {
+  //     const taskId = deleteButton.dataset.taskId;
+  //     deleteTask(taskId);
+  //   });
+  // });
 }
 
 if (todoList.length > 0) {
   todoInput.classList.add("hidden");
 }
-
-// any changes made to the task will be saved in our list
-function makeCounter() {
-  let count = 0;
-  return {
-    increment() {
-      count++;
-    },
-    getCount() {
-      return count;
-    },
-  };
-}
-
-const a = makeCounter();
-const b = makeCounter();
-
-a.increment();
-a.increment();
-b.increment();
-
-console.log(a.getCount());
-console.log(b.getCount());
-
-class Dog {
-  constructor(name, breed, weight) {
-    this.name = name;
-    this.breed = breed;
-    this.weight = weight;
-  }
-}
-
-class Duck {
-  constructor(type, canFly) {
-    this.type = type;
-    this.canFly = canFly;
-  }
-}
-
-const fido = new Dog("fido", "mixed", "30ps");
-console.log(fido);
