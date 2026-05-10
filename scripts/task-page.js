@@ -1,9 +1,11 @@
 // FEATURES TO ADD NEXT //
 /* 
-1.WHEN YOU HOVER OVER TASK OR CLICK THE TASK CONTAINER IT SHOULD MAKE THE DELETE AND EDIT ICON VISIBLE
+1.WHEN YOU HOVER OVER TASK OR CLICK THE TASK CONTAINER IT SHOULD MAKE THE DELETE AND EDIT ICON VISIBLE // DONE//
 2.IF THERE NO TASK ON THE PAGE THE MAIN ADD BUTTON STYLES SHOULD BE SHOWN ALONG WITH AN ILLUSTRATION AND A WRITE UP 
 3.WHEN THE BUTTON IS CLICKED IT GENERATE A POPUP WITH THE INPUT ELEMENT INSIDE  AND A "ADD task" BUTTON THAT ADD'S TASK TO THE TODOLIST
 4.MAKE THE NEW DESINGED BUTTON ACTIVE
+5.ASK THE USER IF HIS SURE HE WANTS TO DELETE THE TASK BEFORE DELETING
+6. GIVE FEEDBACK WHEN A TASK IS DELETED
 ---------------------------OR ---------------
 DISPLAY THE INPUT WHEN THERE IS NO  TASK YET WITH THE MAIN BUTTON IN A CONTAINER
 */
@@ -105,6 +107,9 @@ function renderTodo() {
   document.querySelector(".js-content").innerHTML = todoListHTML;
   renderOverlay();
   deleteTask();
+  if (todoList.length > 0) {
+    todoInput.classList.add("hidden");
+  }
 }
 // ---------------- USED CSS TO HANDLE THIS EVENT ----------------//
 // function mouseMovement() {
@@ -144,6 +149,11 @@ function deleteTask() {
         return task.id !== taskId;
       });
       todoList = newTodo;
+      if (todoList.length > 0) {
+        todoInput.classList.add("hidden");
+      } else {
+        todoInput.classList.remove("hidden");
+      }
     }
   });
   // ------------ USING INDIVIDUAL LISTERNER ------------ //
@@ -156,6 +166,4 @@ function deleteTask() {
   // });
 }
 
-// if (todoList.length > 0) {
-//   todoInput.classList.add("hidden");
-// }
+//
