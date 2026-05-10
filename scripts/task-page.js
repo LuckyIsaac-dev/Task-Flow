@@ -13,9 +13,8 @@ DISPLAY THE INPUT WHEN THERE IS NO  TASK YET WITH THE MAIN BUTTON IN A CONTAINER
 const id = crypto.randomUUID();
 let modelInput = document.getElementById("edited-tasks");
 
-// PRACTICE CODE FOR WHEN AN ELEMENT LOSES FOCUS
-
 let todoInput = document.getElementById("todo");
+let renderBtn = document.querySelector(".render-card-button");
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
@@ -74,6 +73,10 @@ todoInput.addEventListener("keydown", (e) => {
 
     todoInput.value = "";
     renderTodo();
+    document.querySelector(".add-task-card").classList.remove("show");
+    setTimeout(() => {
+      renderBtn.classList.remove("hidden");
+    }, 400);
   }
 });
 
@@ -107,9 +110,6 @@ function renderTodo() {
   document.querySelector(".js-content").innerHTML = todoListHTML;
   renderOverlay();
   deleteTask();
-  // if (todoList.length > 0) {
-  //   todoInput.classList.add("hidden");
-  // }
 }
 // ---------------- USED CSS TO HANDLE THIS EVENT ----------------//
 // function mouseMovement() {
@@ -149,11 +149,6 @@ function deleteTask() {
         return task.id !== taskId;
       });
       todoList = newTodo;
-      // if (todoList.length > 0) {
-      //   todoInput.classList.add("hidden");
-      // } else {
-      //   todoInput.classList.remove("hidden");
-      // }
     }
   });
   // ------------ USING INDIVIDUAL LISTERNER ------------ //
@@ -166,7 +161,7 @@ function deleteTask() {
   // });
 }
 
-let renderBtn = document.querySelector(".render-card-button");
+// let renderBtn = document.querySelector(".render-card-button");
 renderBtn.addEventListener("click", () => {
   document.querySelector(".add-task-card").classList.add("show");
   todoInput.classList.add("show");
