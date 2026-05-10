@@ -107,9 +107,9 @@ function renderTodo() {
   document.querySelector(".js-content").innerHTML = todoListHTML;
   renderOverlay();
   deleteTask();
-  if (todoList.length > 0) {
-    todoInput.classList.add("hidden");
-  }
+  // if (todoList.length > 0) {
+  //   todoInput.classList.add("hidden");
+  // }
 }
 // ---------------- USED CSS TO HANDLE THIS EVENT ----------------//
 // function mouseMovement() {
@@ -149,11 +149,11 @@ function deleteTask() {
         return task.id !== taskId;
       });
       todoList = newTodo;
-      if (todoList.length > 0) {
-        todoInput.classList.add("hidden");
-      } else {
-        todoInput.classList.remove("hidden");
-      }
+      // if (todoList.length > 0) {
+      //   todoInput.classList.add("hidden");
+      // } else {
+      //   todoInput.classList.remove("hidden");
+      // }
     }
   });
   // ------------ USING INDIVIDUAL LISTERNER ------------ //
@@ -166,4 +166,27 @@ function deleteTask() {
   // });
 }
 
-//
+let renderBtn = document.querySelector(".render-card-button");
+renderBtn.addEventListener("click", () => {
+  document.querySelector(".add-task-card").classList.add("show");
+  todoInput.classList.add("show");
+  renderBtn.classList.add("hidden");
+});
+
+document.querySelector(".js-add-task").addEventListener("click", () => {
+  let userTask = todoInput.value;
+  // we get the user data and store it
+
+  // we store each  data with a unique id
+  todoList.push({
+    userTask,
+    id: crypto.randomUUID(),
+  });
+
+  todoInput.value = "";
+  renderTodo();
+  document.querySelector(".add-task-card").classList.remove("show");
+  setTimeout(() => {
+    renderBtn.classList.remove("hidden");
+  }, 400);
+});

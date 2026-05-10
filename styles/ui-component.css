@@ -1,0 +1,61 @@
+.task-input {
+  display: inline-block;
+  width: 350px;
+  padding: 10px 20px;
+  border: 1px solid #e2e0f0;
+  margin: 0 auto;
+  border-radius: 250px;
+  transition: all 0.5s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.task-card {
+  max-width: 500px;
+  border: #e2e0f0 solid 1px;
+  min-height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+.add-task {
+  color: blueviolet;
+  padding: 10px 30px;
+  border-radius: 18px;
+  border: #e2e0f0 1px solid;
+  background-color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+
+  transition: all 0.5s ease;
+  transform: translateX(20px);
+}
+
+/* .add-task:hover {
+  background-color: blueviolet;
+  color: #fff;
+  border-radius: 20px;
+  border: #e2e0f0 1px solid;
+  border: none;
+  transform: translateX(0);
+  opacity: 1;
+} */
+
+.task-card:hover .add-task {
+  background-color: blueviolet;
+  color: #fff;
+  border-radius: 20px;
+  border: #e2e0f0 1px solid;
+  border: none;
+  transform: translateX(0);
+  opacity: 1;
+}
+.task-card:hover .task-input {
+  opacity: 1;
+  pointer-events: all;
+}
