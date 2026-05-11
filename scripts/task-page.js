@@ -112,30 +112,28 @@ function renderTodo() {
   deleteTask();
 }
 // ---------------- USED CSS TO HANDLE THIS EVENT ----------------//
-// function mouseMovement() {
-//   document.querySelectorAll(".tasks-container").forEach((container) => {
-//     container.addEventListener("mouseenter", (e) => {
-//       let containerId = e.target.dataset.taskId;
-//       document
-//         .querySelector(`.js-icon-${containerId}`)
-//         .classList.remove("hidden");
-//       document
-//         .querySelector(`.js-edit-icon-${containerId}`)
-//         .classList.remove("hidden");
-//     });
-//   });
-
-//   document.querySelectorAll(".tasks-container").forEach((container) => {
-//     container.addEventListener("mouseleave", (e) => {
-//       let containerId = e.target.dataset.taskId;
-
-//       document.querySelector(`.js-icon-${containerId}`).classList.add("hidden");
-//       document
-//         .querySelector(`.js-edit-icon-${containerId}`)
-//         .classList.add("hidden");
-//     });
-//   });
-// }
+function mouseMovement() {
+  // document.querySelectorAll(".tasks-container").forEach((container) => {
+  //   container.addEventListener("mouseenter", (e) => {
+  //     let containerId = e.target.dataset.taskId;
+  //     document
+  //       .querySelector(`.js-icon-${containerId}`)
+  //       .classList.remove("hidden");
+  //     document
+  //       .querySelector(`.js-edit-icon-${containerId}`)
+  //       .classList.remove("hidden");
+  //   });
+  // });
+  // document.querySelectorAll(".tasks-container").forEach((container) => {
+  //   container.addEventListener("mouseleave", (e) => {
+  //     let containerId = e.target.dataset.taskId;
+  //     document.querySelector(`.js-icon-${containerId}`).classList.add("hidden");
+  //     document
+  //       .querySelector(`.js-edit-icon-${containerId}`)
+  //       .classList.add("hidden");
+  //   });
+  // });
+}
 function deleteTask() {
   document.querySelector(".js-content").addEventListener("click", (e) => {
     const deletButton = e.target.closest(".delete-icon");

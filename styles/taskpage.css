@@ -104,6 +104,7 @@ body {
 .main-content {
   max-width: 800px;
   padding-left: 70px;
+  /* background-color: #f8f8f8; */
 }
 
 .main-content-heading {
@@ -199,6 +200,9 @@ body {
   pointer-events: auto;
   transform: translateX(0);
 }
+.tasks-container:hover .delete-icon:active {
+  transform: scale(1.5);
+}
 .overlay {
   max-width: 500px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.12);
@@ -281,12 +285,41 @@ body {
 .plus-sign {
   display: inline-block;
   color: var(--primary);
-  font-size: 30px;
+  font-size: 28px;
+  padding-bottom: 5px;
+  transition: color 0.5s ease;
 
-  border-radius: 50%;
+  /* border: 1px solid blue; */
+}
+.plus-sign-background {
+  width: 28px;
+  height: 28px;
+  border-radius: 15px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
 }
 .button-placeholder {
   color: #a7a1ff;
+  transition: all 0.5s ease;
+}
+.render-card-button:hover .plus-sign-background {
+  background-color: var(--primary);
+  transform: scale(0.9);
+
+  color: var(--primary);
+}
+.render-card-button:hover .button-placeholder {
+  color: var(--primary);
+  /* margin: 5px; */
+  transform: scale(1.1);
+  margin: 5px;
+}
+
+.render-card-button:hover .plus-sign {
+  color: #fff;
 }
 
 .logo-container {
