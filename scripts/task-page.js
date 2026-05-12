@@ -11,10 +11,11 @@ DISPLAY THE INPUT WHEN THERE IS NO  TASK YET WITH THE MAIN BUTTON IN A CONTAINER
 */
 
 const id = crypto.randomUUID();
-let modelInput = document.getElementById("edited-tasks");
+let modelInput = document.getElementById("editing-input");
 
 let todoInput = document.getElementById("todo");
-let renderBtn = document.querySelector(".render-card-button");
+const renderBtn = document.querySelector(".render-card-button");
+const overlayContainer = document.querySelector(".overlay-container");
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
@@ -35,9 +36,7 @@ function renderOverlay() {
       todoList.forEach((task) => {
         if (taskId === task.id) {
           //when we find a matching id we re-render the task in a pop up and the task in the input filed
-          document
-            .querySelector(".overlay-container")
-            .classList.remove("hidden");
+          overlayContainer.classList.remove("hidden");
           modelInput.value = task.userTask;
         }
       });
@@ -56,8 +55,7 @@ function editUserTask(taskId, editedMessage) {
 document.querySelector(".save").addEventListener("click", () => {
   editUserTask(saveID, modelInput.value);
   renderTodo();
-
-  document.querySelector(".overlay-container").classList.add("hidden");
+  overlayContainer.classList.add("hidden");
 });
 
 todoInput.addEventListener("keydown", (e) => {

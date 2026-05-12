@@ -51,7 +51,7 @@ body {
 .nav-main-container {
   /* height: 180px; */
   position: fixed;
-  max-width: 300px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -74,7 +74,8 @@ body {
   gap: 5px;
   /* opacity: 0; */
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 35px;
+  width: 100%;
   /* animation: slide-in-text 1s ease-in 0.8s 1 forwards; */
 }
 @keyframes slide-in-text {
@@ -94,6 +95,7 @@ body {
   color: var(--primary);
   /* animation: slide-in-text 1s ease-in 0.8s 1 forwards; */
   /* opacity: 0; */
+  padding-left: 13px;
 }
 .task-logo {
   color: var(--black-80);
@@ -160,7 +162,7 @@ body {
   transition: all 0.5s ease;
 }
 
-#edited-tasks {
+#editing-input {
   width: 400px;
   padding: 10px;
   outline: 1px #e9e9e9;
@@ -171,7 +173,7 @@ body {
 }
 .edit {
   display: inline-block;
-  margin-right: 25px;
+  margin-right: 15px;
   cursor: pointer;
 }
 .edit-icon,
@@ -190,19 +192,6 @@ body {
   letter-spacing: 1px;
 }
 
-.tasks-container:hover .delete-icon {
-  opacity: 50%;
-  pointer-events: auto;
-  transform: translateX(0);
-}
-.tasks-container:hover .edit-icon {
-  opacity: 50%;
-  pointer-events: auto;
-  transform: translateX(0);
-}
-.tasks-container:hover .delete-icon:active {
-  transform: scale(1.5);
-}
 .overlay {
   max-width: 500px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.12);
@@ -237,6 +226,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 999;
 }
 
 .hidden {
@@ -305,22 +295,6 @@ body {
   color: #a7a1ff;
   transition: all 0.5s ease;
 }
-.render-card-button:hover .plus-sign-background {
-  background-color: var(--primary);
-  transform: scale(0.9);
-
-  color: var(--primary);
-}
-.render-card-button:hover .button-placeholder {
-  color: var(--primary);
-  /* margin: 5px; */
-  transform: scale(1.1);
-  margin: 5px;
-}
-
-.render-card-button:hover .plus-sign {
-  color: #fff;
-}
 
 .logo-container {
   display: flex;
@@ -344,4 +318,37 @@ body {
     width: 100%;
     opacity: 1;
   }
+}
+
+/* ------------ HOVER STYLES------------ */
+
+.tasks-container:hover .delete-icon {
+  opacity: 50%;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+.tasks-container:hover .edit-icon {
+  opacity: 50%;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+.tasks-container:hover .delete-icon:active {
+  transform: scale(1.5);
+}
+
+.render-card-button:hover .plus-sign-background {
+  background-color: var(--primary);
+  transform: scale(0.9);
+
+  color: var(--primary);
+}
+.render-card-button:hover .button-placeholder {
+  color: var(--primary);
+  /* margin: 5px; */
+  transform: scale(1.1);
+  margin: 5px;
+}
+
+.render-card-button:hover .plus-sign {
+  color: #fff;
 }
