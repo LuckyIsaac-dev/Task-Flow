@@ -25,7 +25,6 @@ body {
   display: inline-block;
   width: 100%;
   padding: 8px 20px;
-  /* outline: 1px solid #6c63ff; */
   outline: none;
 
   border: 1px solid var(--gray-80);
@@ -49,7 +48,6 @@ body {
 }
 
 .nav-main-container {
-  /* height: 180px; */
   position: fixed;
   width: 300px;
   display: flex;
@@ -106,7 +104,6 @@ body {
 .main-content {
   max-width: 800px;
   padding-left: 70px;
-  /* background-color: #f8f8f8; */
 }
 
 .main-content-heading {
@@ -180,7 +177,6 @@ body {
 .delete-icon {
   width: 20px;
   opacity: 0;
-  /* visibility: hidden; */
   transform: translateX(10px);
   transition:
     opacity 0.4s ease,
@@ -230,7 +226,6 @@ body {
 }
 
 .hidden {
-  /* visibility: hidden; */
   opacity: 0;
   pointer-events: none;
 }
@@ -278,8 +273,6 @@ body {
   font-size: 28px;
   padding-bottom: 5px;
   transition: color 0.5s ease;
-
-  /* border: 1px solid blue; */
 }
 .plus-sign-background {
   width: 28px;
@@ -298,8 +291,6 @@ body {
 
 .logo-container {
   display: flex;
-  /* align-items: start; */
-  /* float: left; */
   padding-left: 20px;
   width: 100px;
 }

@@ -62,7 +62,6 @@ todoInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     let userTask = todoInput.value;
     // we get the user data and store it
-
     // we store each  data with a unique id
     todoList.push({
       userTask,
@@ -72,6 +71,7 @@ todoInput.addEventListener("keydown", (e) => {
     todoInput.value = "";
     renderTodo();
     document.querySelector(".add-task-card").classList.remove("show");
+
     setTimeout(() => {
       renderBtn.classList.remove("hidden");
     }, 400);
@@ -109,29 +109,7 @@ function renderTodo() {
   renderOverlay();
   deleteTask();
 }
-// ---------------- USED CSS TO HANDLE THIS EVENT ----------------//
-function mouseMovement() {
-  // document.querySelectorAll(".tasks-container").forEach((container) => {
-  //   container.addEventListener("mouseenter", (e) => {
-  //     let containerId = e.target.dataset.taskId;
-  //     document
-  //       .querySelector(`.js-icon-${containerId}`)
-  //       .classList.remove("hidden");
-  //     document
-  //       .querySelector(`.js-edit-icon-${containerId}`)
-  //       .classList.remove("hidden");
-  //   });
-  // });
-  // document.querySelectorAll(".tasks-container").forEach((container) => {
-  //   container.addEventListener("mouseleave", (e) => {
-  //     let containerId = e.target.dataset.taskId;
-  //     document.querySelector(`.js-icon-${containerId}`).classList.add("hidden");
-  //     document
-  //       .querySelector(`.js-edit-icon-${containerId}`)
-  //       .classList.add("hidden");
-  //   });
-  // });
-}
+
 function deleteTask() {
   document.querySelector(".js-content").addEventListener("click", (e) => {
     const deletButton = e.target.closest(".delete-icon");
