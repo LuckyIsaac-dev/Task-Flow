@@ -12,7 +12,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
 }
 
-.task-card {
+.delete-overlay {
   max-width: 350px;
   border: #e2e0f0 solid 1px;
   min-height: 150px;
@@ -42,7 +42,7 @@ p {
   padding-top: 20px;
 }
 
-.delete-button {
+.delete-button-container {
   padding-top: 20px;
   display: flex;
   justify-content: end;
@@ -55,12 +55,11 @@ p {
 button {
   border: none;
   background-color: transparent;
-  letter-spacing:;
 }
 .confirm-delete {
   cursor: pointer;
   color: var(--primary);
-  /* color: #2b2866; */
+
   font-weight: 500;
 }
 .cancel-delete {
