@@ -167,6 +167,9 @@ button {
 .checkbox-container {
   display: flex;
 }
+.check-box {
+  cursor: pointer;
+}
 .task {
   padding-left: 10px;
   font-size: 15px;
@@ -302,12 +305,14 @@ button {
 .confirm-delete {
   cursor: pointer;
   color: var(--primary);
+  border: 1px solid black;
 
   font-weight: 500;
 }
 .cancel-delete {
   color: #b6b1ff;
   font-weight: 500;
+  border: 1px solid black;
 
   cursor: pointer;
 }
@@ -362,6 +367,7 @@ button {
   width: 25px;
   height: 25px;
   border-radius: 50%;
+  transition: all 0.5s ease;
 }
 .plus-sign-background {
   width: 30px;
@@ -420,8 +426,6 @@ button {
   background-color: var(--primary);
   /* padding-top: 4px; */
   transform: scale(0.9);
-
-  color: var(--primary);
 }
 .render-card-button:hover .button-placeholder {
   color: var(--primary);

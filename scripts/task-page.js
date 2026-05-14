@@ -4,7 +4,7 @@
 2.IF THERE NO TASK ON THE PAGE THE MAIN ADD BUTTON STYLES SHOULD BE SHOWN ALONG WITH AN ILLUSTRATION AND A WRITE UP /
 3.WHEN THE BUTTON IS CLICKED IT GENERATE A POPUP WITH THE INPUT ELEMENT INSIDE  AND A "ADD task" BUTTON THAT ADD'S TASK TO THE TODOLIST// DONE/
 4.MAKE THE NEW DESINGED BUTTON ACTIVE// DONE//
-5.ASK THE USER IF HIS SURE HE WANTS TO DELETE THE TASK BEFORE DELETING
+5.ASK THE USER IF HIS SURE HE WANTS TO DELETE THE TASK BEFORE DELETING // DONE //
 6. GIVE FEEDBACK WHEN A TASK IS DELETED
 ---------------------------OR ---------------
 DISPLAY THE INPUT WHEN THERE IS NO  TASK YET WITH THE MAIN BUTTON IN A CONTAINER
@@ -92,7 +92,7 @@ function renderTodo() {
     let html = `
 <div class="tasks-container" data-task-id="${todo.id}">
     <div class="checkbox-container">
-      <input type="checkbox" name="task" value="${task}" />
+      <input class="check-box" type="checkbox" name="task" value="${task}" />
       <div class="task">${task}</div>
     </div>
     <div class="editing-container-${todo.id}">
@@ -116,11 +116,10 @@ function renderTodo() {
 
 function deleteTask() {
   document.querySelector(".js-content").addEventListener("click", (e) => {
-    const deletButton = e.target.closest(".delete-icon");
-
+    let deletButton = e.target.closest(".delete-icon");
+    let taskItem;
     if (deletButton) {
       const taskId = deletButton.dataset.taskId;
-      const taskItem = deletButton.closest(".tasks-container");
 
       todoList.forEach((task) => {
         if (taskId === task.id) {
@@ -130,6 +129,8 @@ function deleteTask() {
       deleteOverlay.classList.add("show");
 
       confirmDeleteBtn.addEventListener("click", () => {
+        taskItem = deletButton.closest(".tasks-container");
+        console.log(taskItem);
         taskItem.remove();
 
         let newTodo = todoList.filter((task) => {
@@ -142,6 +143,10 @@ function deleteTask() {
 
       cancelDeleteBtn.addEventListener("click", () => {
         deleteOverlay.classList.remove("show");
+        taskItem = undefined;
+        deletButton = null;
+
+        // console.log(taskItem);
       });
     }
   });
@@ -179,3 +184,56 @@ document.querySelector(".js-add-task").addEventListener("click", () => {
     renderBtn.classList.remove("hidden");
   }, 400);
 });
+
+const checkBoxes = document.querySelectorAll(".check-box");
+checkBoxes.forEach((box) => {
+  box.addEventListener("click", finishedToDo);
+});
+function finishedToDo() {
+  checkBoxes.forEach((box) => {
+    if (box.checked) {
+    }
+  });
+}
+
+// function deleteTask() {
+//   document.querySelector(".js-content").addEventListener("click", (e) => {
+//     const deletButton = e.target.closest(".delete-icon");
+
+//     if (deletButton) {
+//       const taskId = deletButton.dataset.taskId;
+//       const taskItem = deletButton.closest(".tasks-container");
+
+//       todoList.forEach((task) => {
+//         if (taskId === task.id) {
+//           deletedTask.innerText = task.userTask;
+//         }
+//       });
+//       deleteOverlay.classList.add("show");
+
+//       confirmDeleteBtn.addEventListener("click", () => {
+//         taskItem.remove();
+
+//         let newTodo = todoList.filter((task) => {
+//           return task.id !== taskId;
+//         });
+//         todoList = newTodo;
+
+//         deleteOverlay.classList.remove("show");
+//       });
+
+//       cancelDeleteBtn.addEventListener("click", () => {
+//         deleteOverlay.classList.remove("show");
+//       });
+//     }
+//   });
+
+//   // ------------ USING INDIVIDUAL LISTERNER ------------ //
+
+//   // document.querySelectorAll(".delete").forEach((deleteButton) => {
+//   //   deleteButton.addEventListener("click", () => {
+//   //     const taskId = deleteButton.dataset.taskId;
+//   //     deleteTask(taskId);
+//   //   });
+//   // });
+// }
