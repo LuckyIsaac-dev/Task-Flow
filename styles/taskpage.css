@@ -244,7 +244,7 @@ button {
   border: #e2e0f0 solid 1px;
   min-height: 150px;
   padding: 20px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12); */
   position: relative;
   border-radius: 15px;
 
@@ -275,6 +275,9 @@ button {
   width: 100%;
   height: 100%;
   z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
 }
 .delete-button-container {
   padding-top: 20px;

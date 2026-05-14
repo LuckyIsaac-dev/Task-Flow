@@ -16,6 +16,10 @@ let modelInput = document.getElementById("editing-input");
 let todoInput = document.getElementById("todo");
 const renderBtn = document.querySelector(".render-card-button");
 const overlayContainer = document.querySelector(".overlay-container");
+const deleteOverlay = document.querySelector(".delete-overlay-container");
+const deletedTask = document.querySelector(".js-delete-task");
+const confirmDeleteBtn = document.querySelector(".confirm-delete");
+const cancelDeleteBtn = document.querySelector(".cancel-delete");
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
@@ -113,18 +117,35 @@ function renderTodo() {
 function deleteTask() {
   document.querySelector(".js-content").addEventListener("click", (e) => {
     const deletButton = e.target.closest(".delete-icon");
+
     if (deletButton) {
       const taskId = deletButton.dataset.taskId;
       const taskItem = deletButton.closest(".tasks-container");
 
-      taskItem.remove();
-
-      let newTodo = todoList.filter((task) => {
-        return task.id !== taskId;
+      todoList.forEach((task) => {
+        if (taskId === task.id) {
+          deletedTask.innerText = task.userTask;
+        }
       });
-      todoList = newTodo;
+      deleteOverlay.classList.add("show");
+
+      confirmDeleteBtn.addEventListener("click", () => {
+        taskItem.remove();
+
+        let newTodo = todoList.filter((task) => {
+          return task.id !== taskId;
+        });
+        todoList = newTodo;
+
+        deleteOverlay.classList.remove("show");
+      });
+
+      cancelDeleteBtn.addEventListener("click", () => {
+        deleteOverlay.classList.remove("show");
+      });
     }
   });
+
   // ------------ USING INDIVIDUAL LISTERNER ------------ //
 
   // document.querySelectorAll(".delete").forEach((deleteButton) => {
