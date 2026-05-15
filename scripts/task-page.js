@@ -196,6 +196,30 @@ function finishedToDo() {
   });
 }
 
+class Greeting {
+  constructor(userDetails) {
+    this.name = userDetails.name;
+    this.age = userDetails.age;
+    this.gender = userDetails.gender;
+    this.greet();
+  }
+
+  greet() {
+    console.log("welcome prince", this.name);
+  }
+}
+
+class Female extends Greeting {
+  constructor(userDetails) {
+    super(userDetails);
+  }
+  greet() {
+    super.greet();
+    console.log("welcome princess", this.name);
+  }
+}
+const lucky = { name: "divine", age: 21, gender: " female" };
+const user = new Female(lucky);
 // function deleteTask() {
 //   document.querySelector(".js-content").addEventListener("click", (e) => {
 //     const deletButton = e.target.closest(".delete-icon");
