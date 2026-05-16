@@ -11,7 +11,7 @@ DISPLAY THE INPUT WHEN THERE IS NO  TASK YET WITH THE MAIN BUTTON IN A CONTAINER
 */
 
 const id = crypto.randomUUID();
-let modelInput = document.getElementById("editing-input");
+const modelInput = document.getElementById("editing-input");
 
 let todoInput = document.getElementById("todo");
 const renderBtn = document.querySelector(".render-card-button");
@@ -20,6 +20,7 @@ const deleteOverlay = document.querySelector(".delete-overlay-container");
 const deletedTask = document.querySelector(".js-delete-task");
 const confirmDeleteBtn = document.querySelector(".confirm-delete");
 const cancelDeleteBtn = document.querySelector(".cancel-delete");
+const jsContent = document.querySelector(".js-content");
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
@@ -27,39 +28,33 @@ let todoList = [
   { userTask: "Code javascript", id: crypto.randomUUID() },
 ];
 renderTodo();
+jsContent.addEventListener("click", deleteTask);
+jsContent.addEventListener("click", renderOverlay);
 
 let saveID;
-function renderOverlay() {
-  document.querySelectorAll(".edit").forEach((editButton) => {
-    editButton.addEventListener("click", () => {
-      //when the user clicks edit we get the id of the task the user clicked
-      const taskId = editButton.dataset.taskId;
-      saveID = taskId;
-      //we go through our list of data looking for a matching id
+// function renderOverlay() {
+//   document.querySelectorAll(".edit").forEach((editButton) => {
+//     editButton.addEventListener("click", () => {
+//       //when the user clicks edit we get the id of the task the user clicked
+//       const taskId = editButton.dataset.taskId;
+//       saveID = taskId;
+//       //we go through our list of data looking for a matching id
 
-      todoList.forEach((task) => {
-        if (taskId === task.id) {
-          //when we find a matching id we re-render the task in a pop up and the task in the input filed
-          overlayContainer.classList.remove("hidden");
-          modelInput.value = task.userTask;
-        }
-      });
-    });
-  });
-}
-
-function editUserTask(taskId, editedMessage) {
-  todoList.forEach((task) => {
-    if (task.id === taskId) {
-      task.userTask = editedMessage;
-    }
-  });
-}
+//       todoList.forEach((task) => {
+//         if (taskId === task.id) {
+//           //when we find a matching id we re-render the task in a pop up and the task in the input filed
+//           overlayContainer.classList.remove("hidden");
+//           modelInput.value = task.userTask;
+//         }
+//       });
+//     });
+//   });
+// }
 
 document.querySelector(".save").addEventListener("click", () => {
   editUserTask(saveID, modelInput.value);
   renderTodo();
-  overlayContainer.classList.add("hidden");
+  overlayContainer.classList.remove("show");
 });
 
 todoInput.addEventListener("keydown", (e) => {
@@ -82,84 +77,52 @@ todoInput.addEventListener("keydown", (e) => {
   }
 });
 
-// for each data we generate a html to the user
+// function deleteTask() {
+//   document.querySelector(".js-content").addEventListener("click", (e) => {
+//     let deletButton = e.target.closest(".delete-icon");
+//     let taskItem;
+//     if (deletButton) {
+//       const taskId = deletButton.dataset.taskId;
 
-function renderTodo() {
-  let todoListHTML = "";
-  todoList.forEach((todo) => {
-    const task = todo.userTask;
+//       todoList.forEach((task) => {
+//         if (taskId === task.id) {
+//           deletedTask.innerText = task.userTask;
+//         }
+//       });
+//       deleteOverlay.classList.add("show");
 
-    let html = `
-<div class="tasks-container" data-task-id="${todo.id}">
-    <div class="checkbox-container">
-      <input class="check-box" type="checkbox" name="task" value="${task}" />
-      <div class="task">${task}</div>
-    </div>
-    <div class="editing-container-${todo.id}">
-      <span class="edit" data-task-id="${todo.id}">
-      <img class="edit-icon" src="images/icons8-pencil-24.png" alt="edit-task" />
-      </span>
-      <span class="delete" data-task-id="${todo.id}"> 
-          <img data-task-id="${todo.id}" class="delete-icon" src="images/icons8-trash-24.png" alt="trash icon">
-      </span>
-    </div>
-   
-  </div>
-  
-  `;
-    todoListHTML += html;
-  });
-  document.querySelector(".js-content").innerHTML = todoListHTML;
-  renderOverlay();
-  deleteTask();
-}
+//       confirmDeleteBtn.addEventListener("click", () => {
+//         taskItem = deletButton.closest(".tasks-container");
+//         console.log(taskItem);
+//         taskItem.remove();
 
-function deleteTask() {
-  document.querySelector(".js-content").addEventListener("click", (e) => {
-    let deletButton = e.target.closest(".delete-icon");
-    let taskItem;
-    if (deletButton) {
-      const taskId = deletButton.dataset.taskId;
+//         let newTodo = todoList.filter((task) => {
+//           return task.id !== taskId;
+//         });
+//         todoList = newTodo;
 
-      todoList.forEach((task) => {
-        if (taskId === task.id) {
-          deletedTask.innerText = task.userTask;
-        }
-      });
-      deleteOverlay.classList.add("show");
+//         deleteOverlay.classList.remove("show");
+//       });
 
-      confirmDeleteBtn.addEventListener("click", () => {
-        taskItem = deletButton.closest(".tasks-container");
-        console.log(taskItem);
-        taskItem.remove();
+//       cancelDeleteBtn.addEventListener("click", () => {
+//         deleteOverlay.classList.remove("show");
+//         taskItem = undefined;
+//         deletButton = null;
 
-        let newTodo = todoList.filter((task) => {
-          return task.id !== taskId;
-        });
-        todoList = newTodo;
+//         // console.log(taskItem);
+//       });
+//     }
+//   });
 
-        deleteOverlay.classList.remove("show");
-      });
+// ------------ USING INDIVIDUAL LISTERNER ------------ //
 
-      cancelDeleteBtn.addEventListener("click", () => {
-        deleteOverlay.classList.remove("show");
-        taskItem = undefined;
-        deletButton = null;
-
-        // console.log(taskItem);
-      });
-    }
-  });
-
-  // ------------ USING INDIVIDUAL LISTERNER ------------ //
-
-  // document.querySelectorAll(".delete").forEach((deleteButton) => {
-  //   deleteButton.addEventListener("click", () => {
-  //     const taskId = deleteButton.dataset.taskId;
-  //     deleteTask(taskId);
-  //   });
-  // });
-}
+// document.querySelectorAll(".delete").forEach((deleteButton) => {
+//   deleteButton.addEventListener("click", () => {
+//     const taskId = deleteButton.dataset.taskId;
+//     deleteTask(taskId);
+//   });
+// });
+//}
 
 renderBtn.addEventListener("click", () => {
   document.querySelector(".add-task-card").classList.add("show");
@@ -179,6 +142,7 @@ document.querySelector(".js-add-task").addEventListener("click", () => {
 
   todoInput.value = "";
   renderTodo();
+
   document.querySelector(".add-task-card").classList.remove("show");
   setTimeout(() => {
     renderBtn.classList.remove("hidden");
@@ -196,68 +160,107 @@ function finishedToDo() {
   });
 }
 
-class Greeting {
-  constructor(userDetails) {
-    this.name = userDetails.name;
-    this.age = userDetails.age;
-    this.gender = userDetails.gender;
-    this.greet();
+// for each data we generate a html to the user
+
+function renderTodo() {
+  let todoListHTML = "";
+
+  todoList.forEach((todo) => {
+    const task = todo.userTask;
+
+    let html = `
+<div class="tasks-container" data-task-id="${todo.id}">
+  <div class="checkbox-container">
+      <input class="check-box" type="checkbox" name="task" value="${task}" />
+      <div class="task">${task}</div>
+    </div>
+
+    <div class="editing-container-${todo.id}">
+        <span class="edit" data-task-id="${todo.id}">
+          <img class="edit-icon" src="images/icons8-pencil-24.png" alt="edit-task" data-task-id="${todo.id}" />
+        </span>
+
+        <span class="delete" data-task-id="${todo.id}"> 
+          <img data-task-id="${todo.id}" class="delete-icon" src="images/icons8-trash-24.png" alt="trash icon">
+        </span>
+
+    </div>
+</div> `;
+
+    todoListHTML += html;
+  });
+  document.querySelector(".js-content").innerHTML = todoListHTML;
+}
+
+function deleteTask(e) {
+  const deleteBtn = e.target.closest(".delete-icon");
+
+  if (deleteBtn) {
+    const taskId = deleteBtn.dataset.taskId;
+    const taskItem = deleteBtn.closest(".tasks-container");
+
+    todoList.forEach((task) => {
+      if (taskId === task.id) {
+        deletedTask.innerText = task.userTask;
+      }
+    });
+    deleteOverlay.classList.add("show");
+
+    function handleDelete() {
+      taskItem.remove();
+
+      let newTodo = todoList.filter((task) => {
+        return task.id !== taskId;
+      });
+      todoList = newTodo;
+      console.log(todoList);
+      deleteOverlay.classList.remove("show");
+      cleanUp();
+    }
+
+    function handleCancel() {
+      deleteOverlay.classList.remove("show");
+      cleanUp();
+    }
+
+    function cleanUp() {
+      confirmDeleteBtn.removeEventListener("click", handleDelete);
+      cancelDeleteBtn.removeEventListener("click", handleCancel);
+    }
+    confirmDeleteBtn.addEventListener("click", handleDelete);
+    cancelDeleteBtn.addEventListener("click", handleCancel);
   }
 
-  greet() {
-    console.log("welcome prince", this.name);
+  //   ------------ USING INDIVIDUAL LISTERNER ------------ //
+
+  //   document.querySelectorAll(".delete").forEach((deleteButton) => {
+  //     deleteButton.addEventListener("click", () => {
+  //       const taskId = deleteButton.dataset.taskId;
+  //       deleteTask(taskId);
+  //     });
+  //   });
+}
+
+function renderOverlay(e) {
+  const editBtn = e.target.closest(".edit-icon");
+  if (editBtn) {
+    const taskId = editBtn.dataset.taskId;
+    saveID = taskId;
+
+    todoList.forEach((task) => {
+      if (taskId === task.id) {
+        //when we find a matching id we re-render the task in a pop up and the task in the input filed
+        overlayContainer.classList.add("show");
+        modelInput.value = task.userTask;
+      }
+    });
   }
 }
 
-class Female extends Greeting {
-  constructor(userDetails) {
-    super(userDetails);
-  }
-  greet() {
-    super.greet();
-    console.log("welcome princess", this.name);
-  }
+function editUserTask(taskId, editedMessage) {
+  todoList.forEach((task) => {
+    if (task.id === taskId) {
+      task.userTask = editedMessage;
+    }
+  });
 }
-const lucky = { name: "divine", age: 21, gender: " female" };
-const user = new Female(lucky);
-// function deleteTask() {
-//   document.querySelector(".js-content").addEventListener("click", (e) => {
-//     const deletButton = e.target.closest(".delete-icon");
-
-//     if (deletButton) {
-//       const taskId = deletButton.dataset.taskId;
-//       const taskItem = deletButton.closest(".tasks-container");
-
-//       todoList.forEach((task) => {
-//         if (taskId === task.id) {
-//           deletedTask.innerText = task.userTask;
-//         }
-//       });
-//       deleteOverlay.classList.add("show");
-
-//       confirmDeleteBtn.addEventListener("click", () => {
-//         taskItem.remove();
-
-//         let newTodo = todoList.filter((task) => {
-//           return task.id !== taskId;
-//         });
-//         todoList = newTodo;
-
-//         deleteOverlay.classList.remove("show");
-//       });
-
-//       cancelDeleteBtn.addEventListener("click", () => {
-//         deleteOverlay.classList.remove("show");
-//       });
-//     }
-//   });
-
-//   // ------------ USING INDIVIDUAL LISTERNER ------------ //
-
-//   // document.querySelectorAll(".delete").forEach((deleteButton) => {
-//   //   deleteButton.addEventListener("click", () => {
-//   //     const taskId = deleteButton.dataset.taskId;
-//   //     deleteTask(taskId);
-//   //   });
-//   // });
-// }
