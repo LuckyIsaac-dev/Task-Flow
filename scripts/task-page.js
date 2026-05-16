@@ -32,24 +32,6 @@ jsContent.addEventListener("click", deleteTask);
 jsContent.addEventListener("click", renderOverlay);
 
 let saveID;
-// function renderOverlay() {
-//   document.querySelectorAll(".edit").forEach((editButton) => {
-//     editButton.addEventListener("click", () => {
-//       //when the user clicks edit we get the id of the task the user clicked
-//       const taskId = editButton.dataset.taskId;
-//       saveID = taskId;
-//       //we go through our list of data looking for a matching id
-
-//       todoList.forEach((task) => {
-//         if (taskId === task.id) {
-//           //when we find a matching id we re-render the task in a pop up and the task in the input filed
-//           overlayContainer.classList.remove("hidden");
-//           modelInput.value = task.userTask;
-//         }
-//       });
-//     });
-//   });
-// }
 
 document.querySelector(".save").addEventListener("click", () => {
   editUserTask(saveID, modelInput.value);
@@ -76,53 +58,6 @@ todoInput.addEventListener("keydown", (e) => {
     }, 400);
   }
 });
-
-// function deleteTask() {
-//   document.querySelector(".js-content").addEventListener("click", (e) => {
-//     let deletButton = e.target.closest(".delete-icon");
-//     let taskItem;
-//     if (deletButton) {
-//       const taskId = deletButton.dataset.taskId;
-
-//       todoList.forEach((task) => {
-//         if (taskId === task.id) {
-//           deletedTask.innerText = task.userTask;
-//         }
-//       });
-//       deleteOverlay.classList.add("show");
-
-//       confirmDeleteBtn.addEventListener("click", () => {
-//         taskItem = deletButton.closest(".tasks-container");
-//         console.log(taskItem);
-//         taskItem.remove();
-
-//         let newTodo = todoList.filter((task) => {
-//           return task.id !== taskId;
-//         });
-//         todoList = newTodo;
-
-//         deleteOverlay.classList.remove("show");
-//       });
-
-//       cancelDeleteBtn.addEventListener("click", () => {
-//         deleteOverlay.classList.remove("show");
-//         taskItem = undefined;
-//         deletButton = null;
-
-//         // console.log(taskItem);
-//       });
-//     }
-//   });
-
-// ------------ USING INDIVIDUAL LISTERNER ------------ //
-
-// document.querySelectorAll(".delete").forEach((deleteButton) => {
-//   deleteButton.addEventListener("click", () => {
-//     const taskId = deleteButton.dataset.taskId;
-//     deleteTask(taskId);
-//   });
-// });
-//}
 
 renderBtn.addEventListener("click", () => {
   document.querySelector(".add-task-card").classList.add("show");
@@ -230,15 +165,6 @@ function deleteTask(e) {
     confirmDeleteBtn.addEventListener("click", handleDelete);
     cancelDeleteBtn.addEventListener("click", handleCancel);
   }
-
-  //   ------------ USING INDIVIDUAL LISTERNER ------------ //
-
-  //   document.querySelectorAll(".delete").forEach((deleteButton) => {
-  //     deleteButton.addEventListener("click", () => {
-  //       const taskId = deleteButton.dataset.taskId;
-  //       deleteTask(taskId);
-  //     });
-  //   });
 }
 
 function renderOverlay(e) {
