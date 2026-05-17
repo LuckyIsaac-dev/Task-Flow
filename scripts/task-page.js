@@ -21,12 +21,15 @@ const deletedTask = document.querySelector(".js-delete-task");
 const confirmDeleteBtn = document.querySelector(".confirm-delete");
 const cancelDeleteBtn = document.querySelector(".cancel-delete");
 const jsContent = document.querySelector(".js-content");
+const addTaskCard = document.querySelector(".add-task-card");
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
   { userTask: "Zoom meeting with client", id: crypto.randomUUID() },
   { userTask: "Code javascript", id: crypto.randomUUID() },
 ];
+
+const finishedTask = [];
 renderTodo();
 jsContent.addEventListener("click", deleteTask);
 jsContent.addEventListener("click", renderOverlay);
@@ -51,7 +54,7 @@ todoInput.addEventListener("keydown", (e) => {
 
     todoInput.value = "";
     renderTodo();
-    document.querySelector(".add-task-card").classList.remove("show");
+    addTaskCard.classList.remove("show");
 
     setTimeout(() => {
       renderBtn.classList.remove("hidden");
@@ -60,7 +63,7 @@ todoInput.addEventListener("keydown", (e) => {
 });
 
 renderBtn.addEventListener("click", () => {
-  document.querySelector(".add-task-card").classList.add("show");
+  addTaskCard.classList.add("show");
   todoInput.classList.add("show");
   renderBtn.classList.add("hidden");
 });
@@ -78,22 +81,11 @@ document.querySelector(".js-add-task").addEventListener("click", () => {
   todoInput.value = "";
   renderTodo();
 
-  document.querySelector(".add-task-card").classList.remove("show");
+  addTaskCard.classList.remove("show");
   setTimeout(() => {
     renderBtn.classList.remove("hidden");
   }, 400);
 });
-
-const checkBoxes = document.querySelectorAll(".check-box");
-checkBoxes.forEach((box) => {
-  box.addEventListener("click", finishedToDo);
-});
-function finishedToDo() {
-  checkBoxes.forEach((box) => {
-    if (box.checked) {
-    }
-  });
-}
 
 // for each data we generate a html to the user
 
@@ -106,7 +98,7 @@ function renderTodo() {
     let html = `
 <div class="tasks-container" data-task-id="${todo.id}">
   <div class="checkbox-container">
-      <input class="check-box" type="checkbox" name="task" value="${task}" />
+      <input class="check-box" type="checkbox" name="task" value="${task}" data-task-id="${todo.id}" />
       <div class="task">${task}</div>
     </div>
 
@@ -189,4 +181,28 @@ function editUserTask(taskId, editedMessage) {
       task.userTask = editedMessage;
     }
   });
+}
+
+// const checkBoxes = document.querySelectorAll(".check-box");
+// checkBoxes.forEach((box) => {
+//   box.addEventListener("click", finishedToDo);
+// });
+
+jsContent.addEventListener("click", finishedToDo);
+
+function finishedToDo(e) {
+  const finishedTask = e.target.closest(".check-box");
+
+  if (finishedTask) {
+    const taskContainer = finishedTask.closest(".tasks-container");
+    const checkBoxId = e.target.dataset.taskId;
+    taskContainer.classList.add("finished-task");
+
+    let newTodo = todoList.filter((task) => {
+      return task.id !== checkBoxId;
+    });
+
+    todoList = newTodo;
+    // taskContainer.remove();
+  }
 }
