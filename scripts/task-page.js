@@ -64,7 +64,7 @@ todoInput.addEventListener("keydown", (e) => {
 
 renderBtn.addEventListener("click", () => {
   addTaskCard.classList.add("show");
-  todoInput.classList.add("show");
+
   renderBtn.classList.add("hidden");
 });
 
@@ -196,13 +196,13 @@ function finishedToDo(e) {
   if (finishedTask) {
     const taskContainer = finishedTask.closest(".tasks-container");
     const checkBoxId = e.target.dataset.taskId;
-    taskContainer.classList.add("finished-task");
+    // taskContainer.classList.add("finished-task");
 
     let newTodo = todoList.filter((task) => {
       return task.id !== checkBoxId;
     });
 
     todoList = newTodo;
-    // taskContainer.remove();
+    taskContainer.remove();
   }
 }
