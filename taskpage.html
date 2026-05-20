@@ -17,6 +17,7 @@
       <!-- OVERLAY CONTAINER AND SEARCH INPUT -->
       <div class="overlay-container hidden">
         <div class="overlay">
+          <h5>Edit Task</h5>
           <div class="">
             <input type="text" id="editing-input" placeholder="Edit Task" />
           </div>
@@ -103,8 +104,22 @@
         </button>
 
         <div class="add-task-card">
+          <h4 class="add-task-heading">Add New Task</h4>
           <input type="text" id="todo" placeholder="+ Add task" />
-          <button class="js-add-task">Add task</button>
+          <button class="js-add-task">
+            <div class="plus-sign-background">
+              <div class="plus-sign">
+                <svg width="13" height="13">
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <div class="button-placeholder">Add task</div>
+          </button>
         </div>
       </div>
     </main>
