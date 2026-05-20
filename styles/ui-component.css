@@ -1,0 +1,51 @@
+/* 
+--------------------- TYPOGRAPHY ---------------------
+FONT SIZES
+10px / 12px / 14px / 16px / 18px / 20px / 24px / 28px / 32px /
+
+FONT WEIGHTS 
+400 / 500 / 600 / 700 
+
+LINE HEIGHT 
+1.5 / 1.2 
+
+FONT FAMILY 
+Inter
+
+--------------------- COLORS --------------------- 
+PRIMARY 
+Base: #6c63FF (Light Purple)
+
+
+*/
+
+:root {
+  --primary: #6c63ff;
+  --gray-80: #e2e0f0;
+  --gray-70: #d3d0ff;
+  --black-80: #161433;
+  --primary-50: #ecefff;
+  --primary: #6c63ff;
+  --primary-50: #ecefff;
+  --primary-100: #dde2ff;
+  --primary-200: #c2c9ff;
+  --primary-300: #9ca5ff;
+  --primary-400: #7577ff;
+  --primary-600: #5036f5;
+  --primary-700: #452ad8;
+  --pirmary-800: #3825ae;
+  --primary-800: #312689;
+  --primary-950: #1e1650;
+  /* GRAYS */
+  --gray-50: #fafafa;
+  --gray-100: #f3f3f6;
+  --gray-200: #e2e2e9;
+  --gray-300: #d3d2da;
+  --gray-400: #aaa9b9;
+  --gray-500: #6d6c7f;
+  --gray-600: #4e4d60;
+  --gray-700: #3c3b4a;
+  --gray-800: #25252c;
+  --gray-900: #16161d;
+  --gray-950: #08080c;
+}

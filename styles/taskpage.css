@@ -71,6 +71,7 @@ GRAYS
   --gray-900: #16161d;
   --gray-950: #08080c;
 }
+/* --------- GLOBAL STYLES  --------- */
 
 * {
   padding: 0;
@@ -82,7 +83,10 @@ html {
   font-size: 62.5%;
 }
 
-/* --------- GLOBAL STYLES  --------- */
+body {
+  font-family: "Inter", sans-serif;
+  /* background-color: var(--gray-50); */
+}
 
 h1,
 h2,
@@ -124,7 +128,6 @@ h5 {
 p {
   font-size: 1.6rem;
   font-weight: 500;
-  color: #0d00ff;
 }
 
 a {
@@ -141,19 +144,6 @@ a {
   font-weight: 400;
 }
 
-h5 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  line-height: 1.3;
-  padding-bottom: 2.5rem;
-}
-
-p {
-  font-weight: 400;
-  font-size: 1.6rem;
-  line-height: 1.5;
-}
-
 button {
   all: unset;
 
@@ -166,13 +156,9 @@ button {
 a {
   display: inline-block;
   text-decoration: none;
-  color: var(--gray-900);
+  color: var(--gray-800);
   width: 100%;
-  font-size: 1.3rem;
-  line-height: 1.5;
-  font-weight: 400;
-  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
-  /* border: solid 1px var(--gray-100); */
+
   transition: background-color 0.3s ease;
   padding: 0.8rem;
   margin: 0.5rem 0rem;
@@ -180,15 +166,15 @@ a {
 }
 
 .nav {
-  background-color: var(--primary-100);
+  background-color: var(--gray-100);
   animation: expand 1s ease-in 0s 1 forwards;
   width: 100%;
   max-width: 300px;
   min-height: 100vh;
 
   padding: 4rem 1rem 0rem 0.8rem;
-  /* position: fixed; */
-  z-index: 1;
+  position: fixed;
+  /* z-index: 1; */
 }
 
 .nav img {
@@ -196,7 +182,7 @@ a {
 }
 
 a:hover {
-  background-color: var(--primary-50);
+  background-color: var(--gray-200);
 }
 
 .nav-links {
@@ -223,15 +209,6 @@ a:hover {
   border-radius: 15px;
 }
 
-/* .grid-container {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  max-width: 800px;
-  grid-template-rows: 1fr;
-  min-height: 100vh;
-  gap: 10px;
-} */
-
 /* -----------------NAV AND NAV LINKS STYLES----------------- */
 
 @keyframes slide-in-text {
@@ -246,29 +223,20 @@ a:hover {
   }
 }
 
-.grid-container {
+.flex-container {
   display: flex;
 }
-/* -----------------NAV LOGO-----------------  */
-.logo-heading {
-  color: var(--primary);
-  /* animation: slide-in-text 1s ease-in 0.8s 1 forwards; */
-  /* opacity: 0; */
-  padding-left: 13px;
-}
-.task-logo {
-  /* animation: slide-in-text 1s ease-in 0.8s 1 forwards; */
-  /* opacity: 0; */
-}
+
 /*----------------- MAIN PAGE AND CONTENT----------------- */
 .main-content {
   padding-left: 7rem;
   width: 100%;
   max-width: 800px;
+  margin-left: 300px;
 }
 
 .main-content-heading {
-  padding-top: 3rem;
+  padding-top: 5rem;
   margin-left: 2rem;
   padding-bottom: 3rem;
 }
@@ -292,7 +260,7 @@ a:hover {
 }
 .task {
   padding-left: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 400;
   color: var(--gray-900);
 }
@@ -346,7 +314,7 @@ a:hover {
   pointer-events: none;
 }
 #todo::placeholder {
-  font-size: 12px;
+  font-size: 1.2rem;
   letter-spacing: 1px;
 }
 
@@ -354,7 +322,7 @@ a:hover {
   max-width: 500px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.12);
   background-color: #ffffff;
-  border: 1px solid #dedede;
+  border: 1px solid var(--gray-300);
   padding: 3rem;
   position: relative;
   height: 20rem;
@@ -450,9 +418,7 @@ a:hover {
 }
 .render-card-button {
   display: flex;
-  /* align-items: center; */
   gap: 0.5rem;
-  /* border: 1px solid black; */
   cursor: pointer;
   padding-left: 1rem;
   margin: 0.8rem;
@@ -480,7 +446,8 @@ a:hover {
 
 .plus-sign {
   color: var(--primary);
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-weight: 700;
   transition: color 0.5s ease;
 
   display: grid;
@@ -504,14 +471,14 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
   transition: all 0.5s ease;
 }
 .button-placeholder {
   /* color: #a7a1ff; */
   color: var(--gray-600);
-  font-size: 1.3rem;
-  transition: all 0.5s ease;
+  font-size: 1.4rem;
+  font-weight: 400;
+  transition: all 0.5s;
   padding-top: 2px;
 }
 
@@ -564,7 +531,7 @@ a:hover {
 }
 .render-card-button:hover .button-placeholder {
   color: var(--primary);
-  /* transform: scale(1.1); */
+
   margin-left: 5px;
 }
 
