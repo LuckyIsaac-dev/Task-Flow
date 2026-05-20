@@ -13,7 +13,7 @@ DISPLAY THE INPUT WHEN THERE IS NO  TASK YET WITH THE MAIN BUTTON IN A CONTAINER
 const id = crypto.randomUUID();
 const modelInput = document.getElementById("editing-input");
 
-let todoInput = document.getElementById("todo");
+let todoInput = document.querySelector(".todo");
 const renderBtn = document.querySelector(".render-card-button");
 const overlayContainer = document.querySelector(".overlay-container");
 const deleteOverlay = document.querySelector(".delete-overlay-container");
@@ -55,6 +55,7 @@ todoInput.addEventListener("keydown", (e) => {
     todoInput.value = "";
     renderTodo();
     addTaskCard.classList.remove("show");
+    todoInput.classList.remove("show");
 
     setTimeout(() => {
       renderBtn.classList.remove("hidden");
@@ -64,7 +65,7 @@ todoInput.addEventListener("keydown", (e) => {
 
 renderBtn.addEventListener("click", () => {
   addTaskCard.classList.add("show");
-
+  todoInput.classList.add("show");
   renderBtn.classList.add("hidden");
 });
 
@@ -82,6 +83,7 @@ document.querySelector(".js-add-task").addEventListener("click", () => {
   renderTodo();
 
   addTaskCard.classList.remove("show");
+  // todoInput.classList.remove("show");
   setTimeout(() => {
     renderBtn.classList.remove("hidden");
   }, 400);
