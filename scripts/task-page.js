@@ -43,6 +43,8 @@ document.querySelector(".save").addEventListener("click", () => {
 });
 
 todoInput.addEventListener("keydown", (e) => {
+  if (todoInput.value === "") return;
+
   if (e.key === "Enter") {
     let userTask = todoInput.value;
     // we get the user data and store it
@@ -70,6 +72,7 @@ renderBtn.addEventListener("click", () => {
 });
 
 document.querySelector(".js-add-task").addEventListener("click", () => {
+  if (todoInput.value === "") return;
   let userTask = todoInput.value;
   // we get the user data and store it
 
