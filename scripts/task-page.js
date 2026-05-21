@@ -188,11 +188,6 @@ function editUserTask(taskId, editedMessage) {
   });
 }
 
-// const checkBoxes = document.querySelectorAll(".check-box");
-// checkBoxes.forEach((box) => {
-//   box.addEventListener("click", finishedToDo);
-// });
-
 jsContent.addEventListener("click", finishedToDo);
 
 function finishedToDo(e) {
@@ -201,7 +196,6 @@ function finishedToDo(e) {
   if (finishedTask) {
     const taskContainer = finishedTask.closest(".tasks-container");
     const checkBoxId = e.target.dataset.taskId;
-    // taskContainer.classList.add("finished-task");
 
     let newTodo = todoList.filter((task) => {
       return task.id !== checkBoxId;
