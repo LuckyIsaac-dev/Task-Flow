@@ -230,10 +230,13 @@ a:hover {
 }
 
 /*----------------- MAIN PAGE AND CONTENT----------------- */
+/* use flex box to center it */
 .main-content {
-  padding-left: 7rem;
-  width: 100%;
   max-width: 800px;
+  padding-left: 7rem;
+
+  padding-right: 1.5rem;
+  width: 100%;
   margin-left: 30rem;
 }
 

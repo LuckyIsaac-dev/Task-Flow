@@ -29,7 +29,7 @@ let todoList = [
   { userTask: "Code javascript", id: crypto.randomUUID() },
 ];
 
-const finishedTask = [];
+const completedTask = [];
 renderTodo();
 jsContent.addEventListener("click", deleteTask);
 jsContent.addEventListener("click", renderOverlay);
@@ -199,6 +199,12 @@ function finishedToDo(e) {
 
     let newTodo = todoList.filter((task) => {
       return task.id !== checkBoxId;
+    });
+    todoList.forEach((task) => {
+      if (task.id === checkBoxId) {
+        completedTask.push(task);
+        console.log(completedTask);
+      }
     });
 
     todoList = newTodo;
