@@ -57,10 +57,6 @@ todoInput.addEventListener("keydown", (e) => {
 
     todoInput.value = "";
     renderTodo();
-
-    // setTimeout(() => {
-    //   renderBtn.classList.remove("hidden");
-    // }, 400);
   }
 });
 
@@ -90,11 +86,6 @@ document.querySelector(".js-add-task").addEventListener("click", () => {
 
   todoInput.value = "";
   renderTodo();
-
-  // todoInput.classList.remove("show");
-  // setTimeout(() => {
-  //   renderBtn.classList.remove("hidden");
-  // }, 400);
 });
 
 // for each data we generate a html to the user
