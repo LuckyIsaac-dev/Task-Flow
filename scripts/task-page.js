@@ -22,6 +22,7 @@ const confirmDeleteBtn = document.querySelector(".confirm-delete");
 const cancelDeleteBtn = document.querySelector(".cancel-delete");
 const jsContent = document.querySelector(".js-content");
 const addTaskCard = document.querySelector(".add-task-card");
+const jsCancelTask = document.querySelector(".js-cancel-task");
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
@@ -56,13 +57,18 @@ todoInput.addEventListener("keydown", (e) => {
 
     todoInput.value = "";
     renderTodo();
-    addTaskCard.classList.remove("show");
-    todoInput.classList.remove("show");
 
-    setTimeout(() => {
-      renderBtn.classList.remove("hidden");
-    }, 400);
+    // setTimeout(() => {
+    //   renderBtn.classList.remove("hidden");
+    // }, 400);
   }
+});
+
+jsCancelTask.addEventListener("click", () => {
+  todoInput.value = "";
+  addTaskCard.classList.remove("show");
+  todoInput.classList.remove("show");
+  renderBtn.classList.remove("hidden");
 });
 
 renderBtn.addEventListener("click", () => {
@@ -85,11 +91,10 @@ document.querySelector(".js-add-task").addEventListener("click", () => {
   todoInput.value = "";
   renderTodo();
 
-  addTaskCard.classList.remove("show");
   // todoInput.classList.remove("show");
-  setTimeout(() => {
-    renderBtn.classList.remove("hidden");
-  }, 400);
+  // setTimeout(() => {
+  //   renderBtn.classList.remove("hidden");
+  // }, 400);
 });
 
 // for each data we generate a html to the user
