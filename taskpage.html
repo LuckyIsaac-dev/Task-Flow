@@ -56,26 +56,30 @@
         </a>
         <a href="taskpage.html" target="_blank">
           <div class="nav-links">
-            <img class="nav-icon" src="images/icons8-today-50.png" alt="" />
+            <img class="nav-svg" src="images/calendar-check.svg" alt="" />
             <span> Today </span>
           </div>
         </a>
         <a href="taskpage.html" target="_blank">
           <div class="nav-links">
-            <img class="nav-icon" src="images/icons8-15-48.png" alt="" />
+            <img class="nav-svg" src="images/calendar-arrow-up.svg" alt="" />
 
             <span>Upcoming</span>
           </div>
         </a>
         <a href="taskpage.html" target="_blank">
           <div class="nav-links">
-            <img class="nav-icon" src="images/icons8-calendar-50.png" alt="" />
+            <img class="nav-svg" src="images/calendar.svg" alt="" />
             <span>Calender</span>
           </div>
         </a>
         <a href="taskpage.html" target="_blank">
           <div class="nav-links">
-            <img class="nav-icon" src="images/icons8-analysis-50.png" alt="" />
+            <img
+              class="nav-svg"
+              src="images/chart-line-up.svg"
+              alt="analysis"
+            />
             <span>Analysis</span>
           </div>
         </a>
@@ -102,27 +106,29 @@
         </button>
 
         <div class="add-task-card">
-          <h4 class="add-task-heading">Add New Task</h4>
-          <input type="text" class="todo" placeholder="+ Add task" required />
-          <button class="js-add-task">
-            <div class="plus-sign-background">
-              <div class="plus-sign">
-                <svg width="13" height="13">
-                  <path
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    d="M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1z"
-                  ></path>
-                </svg>
-              </div>
+          <div class="todo-container">
+            <input type="text" class="todo" placeholder="Add task" required />
+          </div>
+          <div class="task-settings">
+            <div class="settings">
+              <img src="images/calendar-clock.svg" alt="calender-clock" /><span
+                >Date</span
+              >
             </div>
-            <div class="button-placeholder">Add task</div>
-          </button>
+            <div class="settings">
+              <img src="images/clock-five.svg" alt="" /> <span>Time</span>
+            </div>
+            <div class="settings">
+              <img src="images/flag.svg" alt="priority" />
+              <span>Priority</span>
+            </div>
+            <!-- <div class="settings"></div> -->
+          </div>
+          <div class="button-container">
+            <button class="js-cancel-task">Cancel</button>
+            <button class="js-add-task">Add task</button>
+          </div>
         </div>
-      </div>
-      <div class="seperator"></div>
-      <div class="finished-task-container">
-        <p></p>
       </div>
     </main>
     <script src="scripts/task-page.js"></script>
