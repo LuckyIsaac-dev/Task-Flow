@@ -85,6 +85,7 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
+  /* overflow-x: hidden; */
 }
 
 h1,
@@ -217,10 +218,6 @@ a:hover {
 
 /* -----------------NAV AND NAV LINKS STYLES----------------- */
 
-.flex-container {
-  display: flex;
-}
-
 /*----------------- MAIN PAGE AND CONTENT----------------- */
 
 .main-content {
@@ -229,6 +226,7 @@ a:hover {
   padding-left: 7rem;
   padding-right: 1.5rem;
   width: 100%;
+
   margin-left: 30rem;
 }
 
@@ -247,6 +245,7 @@ a:hover {
   align-items: center;
   cursor: pointer;
   transition: opacity 0.5s ease;
+  width: 90%;
 }
 
 .checkbox-container {
@@ -598,4 +597,34 @@ a:hover {
 
 .render-card-button:hover .plus-sign {
   color: #fff;
+}
+
+/* ------------- MEDIA QUERIES ------------- */
+@media (max-width: 1100px) {
+  .nav {
+    max-width: 210px;
+  }
+
+  .main-content {
+    margin-left: 19rem;
+  }
+  .js-content {
+    width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav,
+  .search {
+    visibility: hidden;
+  }
+  .main-content {
+    margin: 0;
+    padding-left: 2rem;
+    padding-right: 0;
+  }
+
+  .js-content {
+    width: 100%;
+  }
 }
