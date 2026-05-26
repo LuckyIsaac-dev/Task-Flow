@@ -207,3 +207,12 @@ function finishedToDo(e) {
     taskContainer.remove();
   }
 }
+let mainContent = document.querySelector(".main-content");
+
+document.querySelector(".hamburgar-menu").addEventListener("click", () => {
+  let nav = document.querySelector(".nav");
+  nav.classList.add("show");
+  mainContent.addEventListener("click", () => {
+    nav.classList.remove("show");
+  });
+});
