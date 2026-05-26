@@ -23,6 +23,10 @@ const cancelDeleteBtn = document.querySelector(".cancel-delete");
 const jsContent = document.querySelector(".js-content");
 const addTaskCard = document.querySelector(".add-task-card");
 const jsCancelTask = document.querySelector(".js-cancel-task");
+const sideBarOverlay = document.querySelector(".sidebar-overlay");
+const nav = document.querySelector(".nav");
+const menu = document.querySelector(".hamburgar-menu");
+const navMenu = document.querySelector(".hamburgar-menu2");
 
 let todoList = [
   { userTask: "Go to emily's house", id: crypto.randomUUID() },
@@ -207,27 +211,17 @@ function finishedToDo(e) {
     taskContainer.remove();
   }
 }
-let sideBarOverlay = document.querySelector(".sidebar-overlay");
-let nav = document.querySelector(".nav");
-document.querySelector(".hamburgar-menu").addEventListener("click", () => {
-  if (nav.classList.contains("nav-show")) {
-    nav.classList.remove("nav-show");
-    sideBarOverlay.classList.remove("side-bar-show");
-  } else {
-    nav.classList.add("nav-show");
-    document.querySelector(".hamburgar-menu2").classList.add("show");
-    sideBarOverlay.classList.add("side-bar-show");
-  }
+
+menu.addEventListener("click", () => {
+  nav.classList.add("nav-show");
+  navMenu.classList.add("show");
+  sideBarOverlay.classList.add("side-bar-show");
 });
-document.querySelector(".hamburgar-menu2").addEventListener("click", () => {
-  if (nav.classList.contains("nav-show")) {
-    sideBarOverlay.classList.remove("side-bar-show");
-    nav.classList.remove("nav-show");
-    document.querySelector(".hamburgar-menu2").classList.remove("show");
-  } else {
-    sideBarOverlay.classList.add("side-bar-show");
-    nav.classList.add("nav-show");
-  }
+
+navMenu.addEventListener("click", () => {
+  sideBarOverlay.classList.remove("side-bar-show");
+  nav.classList.remove("nav-show");
+  navMenu.classList.remove("show");
 });
 
 sideBarOverlay.addEventListener("click", () => {
