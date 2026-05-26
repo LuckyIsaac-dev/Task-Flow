@@ -252,6 +252,21 @@ a:hover {
   pointer-events: none;
   z-index: 1000;
 }
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.5); */
+
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.3s;
+
+  z-index: 999;
+}
 .menu-container {
   display: flex;
   justify-content: end;
@@ -640,13 +655,14 @@ a:hover {
 }
 
 @media (max-width: 576px) {
-  .nav,
-  .search {
+  .nav {
     pointer-events: none;
     transition: all 0.5s ease-in;
-    width: 0px;
+    left: -300px;
+
     opacity: 0;
-    /* z-index: 999; */
+
+    z-index: 999;
   }
   .main-content {
     margin: 0;
@@ -665,7 +681,12 @@ a:hover {
   .nav-show {
     transition: all 0.5s ease-in;
     pointer-events: all;
-    width: 300px;
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .side-bar-show {
     opacity: 1;
     visibility: visible;
   }

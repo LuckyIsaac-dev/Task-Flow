@@ -207,21 +207,25 @@ function finishedToDo(e) {
     taskContainer.remove();
   }
 }
-
+let sideBarOverlay = document.querySelector(".sidebar-overlay");
 let nav = document.querySelector(".nav");
 document.querySelector(".hamburgar-menu").addEventListener("click", () => {
   if (nav.classList.contains("nav-show")) {
     nav.classList.remove("nav-show");
+    sideBarOverlay.classList.remove("side-bar-show");
   } else {
     nav.classList.add("nav-show");
     document.querySelector(".hamburgar-menu2").classList.add("show");
+    sideBarOverlay.classList.add("side-bar-show");
   }
 });
 document.querySelector(".hamburgar-menu2").addEventListener("click", () => {
   if (nav.classList.contains("nav-show")) {
+    sideBarOverlay.classList.remove("side-bar-show");
     nav.classList.remove("nav-show");
     document.querySelector(".hamburgar-menu2").classList.remove("show");
   } else {
+    sideBarOverlay.classList.add("side-bar-show");
     nav.classList.add("nav-show");
   }
 });
