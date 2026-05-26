@@ -229,3 +229,8 @@ document.querySelector(".hamburgar-menu2").addEventListener("click", () => {
     nav.classList.add("nav-show");
   }
 });
+
+sideBarOverlay.addEventListener("click", () => {
+  nav.classList.remove("nav-show");
+  sideBarOverlay.classList.remove("side-bar-show");
+});
