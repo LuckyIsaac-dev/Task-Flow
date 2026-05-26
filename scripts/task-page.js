@@ -207,12 +207,21 @@ function finishedToDo(e) {
     taskContainer.remove();
   }
 }
-let mainContent = document.querySelector(".main-content");
 
+let nav = document.querySelector(".nav");
 document.querySelector(".hamburgar-menu").addEventListener("click", () => {
-  let nav = document.querySelector(".nav");
-  nav.classList.add("show");
-  mainContent.addEventListener("click", () => {
-    nav.classList.remove("show");
-  });
+  if (nav.classList.contains("nav-show")) {
+    nav.classList.remove("nav-show");
+  } else {
+    nav.classList.add("nav-show");
+    document.querySelector(".hamburgar-menu2").classList.add("show");
+  }
+});
+document.querySelector(".hamburgar-menu2").addEventListener("click", () => {
+  if (nav.classList.contains("nav-show")) {
+    nav.classList.remove("nav-show");
+    document.querySelector(".hamburgar-menu2").classList.remove("show");
+  } else {
+    nav.classList.add("nav-show");
+  }
 });
