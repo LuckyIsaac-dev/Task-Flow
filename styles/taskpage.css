@@ -222,7 +222,7 @@ a:hover {
 
 .main-content {
   max-width: 800px;
-
+  border: 1px solid var(--gray-800);
   padding-left: 7rem;
   padding-right: 1.5rem;
   width: 100%;
@@ -311,7 +311,7 @@ a:hover {
 }
 
 .add-task-card {
-  width: 100%;
+  width: 90%;
   border: var(--gray-400) solid 1px;
   min-height: 10rem;
   gap: 3rem;
@@ -643,18 +643,24 @@ a:hover {
 /* ------------- MEDIA QUERIES ------------- */
 @media (max-width: 1100px) {
   .nav {
-    max-width: 210px;
+    max-width: 200px;
   }
 
   .main-content {
-    margin-left: 19rem;
+    margin-left: 18rem;
   }
   .js-content {
+    width: 80%;
+  }
+  .add-task-card {
     width: 80%;
   }
 }
 
 @media (max-width: 576px) {
+  html {
+    font-size: 50%;
+  }
   .search {
     visibility: hidden;
   }
@@ -670,12 +676,23 @@ a:hover {
   }
   .main-content {
     margin: 0;
-    padding-left: 2rem;
-    padding-right: 0;
+    /* padding-left: 2rem;
+    padding-right: 0; */
+    padding: 1rem;
   }
 
   .js-content {
     width: 100%;
+  }
+  .add-task-card {
+    width: 95%;
+  }
+  .todo-container {
+    padding: 0.2;
+    margin-bottom: 2rem;
+  }
+  .todo {
+    padding: 5px;
   }
 
   .hamburgar-menu {
