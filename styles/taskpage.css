@@ -222,7 +222,7 @@ a:hover {
 
 .main-content {
   max-width: 800px;
-  border: 1px solid var(--gray-800);
+  /* border: 1px solid var(--gray-800); */
   padding-left: 7rem;
   padding-right: 1.5rem;
   width: 100%;
@@ -620,8 +620,6 @@ a:hover {
 
 .render-card-button:hover .plus-sign-background {
   background-color: var(--primary);
-
-  /* transform: scale(0.9); */
 }
 .render-card-button:hover .button-placeholder {
   color: var(--primary);
@@ -658,9 +656,9 @@ a:hover {
 }
 
 @media (max-width: 576px) {
-  html {
+  /* html {
     font-size: 50%;
-  }
+  } */
   .search {
     visibility: hidden;
   }
@@ -676,8 +674,6 @@ a:hover {
   }
   .main-content {
     margin: 0;
-    /* padding-left: 2rem;
-    padding-right: 0; */
     padding: 1rem;
   }
 
@@ -688,8 +684,8 @@ a:hover {
     width: 95%;
   }
   .todo-container {
-    padding: 0.2;
     margin-bottom: 2rem;
+    padding: 10px;
   }
   .todo {
     padding: 5px;
