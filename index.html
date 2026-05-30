@@ -13,85 +13,80 @@
     <title>TaskFlow</title>
   </head>
   <body>
-    <main>
-      <!-- OVERLAY CONTAINER AND SEARCH INPUT -->
-      <div class="overlay-container hidden">
-        <div class="overlay">
-          <h5>Edit Task</h5>
-          <div class="">
-            <input type="text" id="editing-input" placeholder="Edit Task" />
-          </div>
-          <button class="save">Save</button>
+    <div class="overlay-container hidden">
+      <div class="overlay">
+        <h5>Edit Task</h5>
+        <div class="">
+          <input type="text" id="editing-input" placeholder="Edit Task" />
+        </div>
+        <button class="save">Save</button>
+      </div>
+    </div>
+
+    <div class="delete-overlay-container">
+      <div class="delete-overlay">
+        <h5>Delete task ?</h5>
+        <p class="js-delete-task"></p>
+        <div class="delete-button-container">
+          <button class="cancel-delete">CANCEL</button>
+          <button class="confirm-delete">DELETE</button>
         </div>
       </div>
+    </div>
+    <div class="sidebar-overlay"></div>
 
-      <div class="delete-overlay-container">
-        <div class="delete-overlay">
-          <h5>Delete task ?</h5>
-          <p class="js-delete-task"></p>
-          <div class="delete-button-container">
-            <button class="cancel-delete">CANCEL</button>
-            <button class="confirm-delete">DELETE</button>
-          </div>
-        </div>
+    <!-- NAV LINKS  -->
+    <nav class="nav">
+      <div class="menu-container">
+        <img
+          class="hamburgar-menu2"
+          src="images/menu-burger.png"
+          alt="ham-burgar menu"
+        />
       </div>
-
-      <div class="search">
-        <input type="text" placeholder="search for task" />
-      </div>
-
-      <div class="sidebar-overlay"></div>
-
-      <!-- NAV LINKS  -->
-      <nav class="nav">
-        <div class="menu-container">
-          <img
-            class="hamburgar-menu2"
-            src="images/menu-burger.png"
-            alt="ham-burgar menu"
-          />
-        </div>
-        <!-- <div class="logo-container">
+      <!-- <div class="logo-container">
             <h1 class="logo-heading">
               <span class="task-logo">task</span>flow
             </h1>
           </div> -->
-        <a href="taskpage.html" target="_blank">
-          <div class="nav-links">
-            <img class="nav-icon" src="images/icons8-inbox-50.png" alt="" />
-            <span> Inbox </span>
-          </div>
-        </a>
-        <a href="">
-          <div class="nav-links">
-            <img class="nav-svg" src="images/calendar-check.svg" alt="" />
-            <span> Today </span>
-          </div>
-        </a>
-        <a href="">
-          <div class="nav-links">
-            <img class="nav-svg" src="images/calendar-arrow-up.svg" alt="" />
+      <a href="taskpage.html" target="_blank">
+        <div class="nav-links">
+          <img class="nav-icon" src="images/icons8-inbox-50.png" alt="" />
+          <span> Inbox </span>
+        </div>
+      </a>
+      <a href="">
+        <div class="nav-links">
+          <img class="nav-svg" src="images/calendar-check.svg" alt="" />
+          <span> Today </span>
+        </div>
+      </a>
+      <a href="">
+        <div class="nav-links">
+          <img class="nav-svg" src="images/calendar-arrow-up.svg" alt="" />
 
-            <span>Upcoming</span>
-          </div>
-        </a>
-        <a href="">
-          <div class="nav-links">
-            <img class="nav-svg" src="images/calendar.svg" alt="" />
-            <span>Calender</span>
-          </div>
-        </a>
-        <a href="">
-          <div class="nav-links">
-            <img
-              class="nav-svg"
-              src="images/chart-line-up.svg"
-              alt="analysis"
-            />
-            <span>Analysis</span>
-          </div>
-        </a>
-      </nav>
+          <span>Upcoming</span>
+        </div>
+      </a>
+      <a href="">
+        <div class="nav-links">
+          <img class="nav-svg" src="images/calendar.svg" alt="" />
+          <span>Calender</span>
+        </div>
+      </a>
+      <a href="">
+        <div class="nav-links">
+          <img class="nav-svg" src="images/chart-line-up.svg" alt="analysis" />
+          <span>Analysis</span>
+        </div>
+      </a>
+    </nav>
+    <main>
+      <!-- OVERLAY CONTAINER AND SEARCH INPUT -->
+
+      <div class="search">
+        <input type="text" placeholder="search for task" />
+      </div>
 
       <div class="main-content">
         <img
