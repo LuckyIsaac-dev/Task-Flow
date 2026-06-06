@@ -250,6 +250,11 @@ a:hover {
   opacity: 0;
   pointer-events: none;
   z-index: 1000;
+  background-color: var(--gray-200);
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  color: var(--gray-700);
+  border-radius: 8px;
 }
 .sidebar-overlay {
   position: fixed;
