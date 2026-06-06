@@ -255,6 +255,7 @@ a:hover {
   font-size: 1.4rem;
   color: var(--gray-700);
   border-radius: 8px;
+  display: none;
 }
 .sidebar-overlay {
   position: fixed;
@@ -660,6 +661,9 @@ a:hover {
 }
 
 @media (max-width: 576px) {
+  .hamburgar-menu2 {
+    display: flex;
+  }
   /* html {
     font-size: 50%;
   } */
