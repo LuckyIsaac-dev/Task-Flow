@@ -667,6 +667,12 @@ a:hover {
   /* html {
     font-size: 50%;
   } */
+  .overlay {
+    width: 350px;
+  }
+  #editing-input {
+    width: 100%;
+  }
   .search {
     visibility: hidden;
   }
