@@ -28,11 +28,7 @@ const nav = document.querySelector(".nav");
 const menu = document.querySelector(".hamburgar-menu");
 const navMenu = document.querySelector(".hamburgar-menu2");
 
-let todoList = [
-  { userTask: "Go to emily's house", id: crypto.randomUUID() },
-  { userTask: "Zoom meeting with client", id: crypto.randomUUID() },
-  { userTask: "Code javascript", id: crypto.randomUUID() },
-];
+let todoList = [];
 
 const completedTask = [];
 renderTodo();
@@ -90,6 +86,7 @@ document.querySelector(".js-add-task").addEventListener("click", () => {
 
   todoInput.value = "";
   renderTodo();
+  saveToStorage();
 });
 
 // for each data we generate a html to the user
@@ -145,7 +142,7 @@ function deleteTask(e) {
         return task.id !== taskId;
       });
       todoList = newTodo;
-      console.log(todoList);
+      saveToStorage();
       deleteOverlay.classList.remove("show");
       cleanUp();
     }
@@ -209,7 +206,12 @@ function finishedToDo(e) {
 
     todoList = newTodo;
     taskContainer.remove();
+    saveToStorage();
   }
+}
+
+function saveToStorage() {
+  localStorage.setItem("todolist", JSON.stringify(todoList));
 }
 
 menu.addEventListener("click", () => {
