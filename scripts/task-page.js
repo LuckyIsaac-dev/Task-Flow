@@ -28,7 +28,8 @@ const nav = document.querySelector(".nav");
 const menu = document.querySelector(".hamburgar-menu");
 const navMenu = document.querySelector(".hamburgar-menu2");
 
-let todoList = [];
+let todoList;
+todoList = JSON.parse(localStorage.getItem("todolist")) || [];
 
 const completedTask = [];
 renderTodo();
@@ -40,6 +41,7 @@ let saveID;
 document.querySelector(".save").addEventListener("click", () => {
   editUserTask(saveID, modelInput.value);
   renderTodo();
+  saveToStorage();
   overlayContainer.classList.remove("show");
 });
 
@@ -98,10 +100,10 @@ function renderTodo() {
     const task = todo.userTask;
 
     let html = `
-<div class="tasks-container" data-task-id="${todo.id}">
-  <div class="checkbox-container">
+  <div class="tasks-container" data-task-id="${todo.id}">
+   <div class="checkbox-container">
       <input class="check-box" type="checkbox" name="task" value="${task}" data-task-id="${todo.id}" />
-      <div class="task">${task}</div>
+     <div class="task">${task}</div>
     </div>
 
     <div class="editing-container-${todo.id}">
