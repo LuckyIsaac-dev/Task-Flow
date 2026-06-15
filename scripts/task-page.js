@@ -233,3 +233,9 @@ sideBarOverlay.addEventListener("click", () => {
   nav.classList.remove("nav-show");
   sideBarOverlay.classList.remove("side-bar-show");
 });
+let calender = document.getElementById("calender");
+document.querySelector(".calender-page").addEventListener("click", () => {
+  console.log("calender");
+  calender.style.display = "initial";
+  console.log(calender);
+});
