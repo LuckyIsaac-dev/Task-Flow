@@ -56,6 +56,7 @@ todoInput.addEventListener("keydown", (e) => {
       userTask,
       id: crypto.randomUUID(),
     });
+    saveToStorage();
 
     todoInput.value = "";
     renderTodo();
