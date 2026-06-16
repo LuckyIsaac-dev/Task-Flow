@@ -258,6 +258,7 @@ navLinks.forEach((navlink) => {
   });
 });
 
-const d = new Date("2026-06-16").getFullYear();
+const d = new Date();
 
-console.log(d.toString());
+document.querySelector(".date").innerHTML = d.toDateString().slice(0, 10);
+console.log("javascript".slice(4));

@@ -94,7 +94,7 @@ h4 {
   line-height: 1.2;
   font-weight: 700;
   font-family: "Inter", sans-serif;
-  color: var(--gray-800);
+  color: var(--gray-700);
 }
 
 p,
@@ -234,7 +234,7 @@ a.active {
 
 .panel {
   max-width: 800px;
-  /* border: 1px solid var(--gray-800); */
+  /* border: 1px solvarid var(--gray-800); */
   padding-left: 7rem;
   padding-right: 1.5rem;
   width: 100%;
@@ -246,8 +246,18 @@ a.active {
   display: grid;
   grid-template-columns: repeat(7, 100px);
   /* grid-auto-rows: 100px; */
+  background-color: var(--gray-800);
+  width: 100%;
+}
+.page-date {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.4rem;
 }
 
+.page-date > span {
+  color: var(--gray-500);
+}
 .main-content-heading {
   padding-top: 5rem;
   margin-left: 2rem;
