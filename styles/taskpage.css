@@ -232,8 +232,7 @@ a.active {
 
 /*----------------- MAIN PAGE AND CONTENT----------------- */
 
-#inbox,
-#calender {
+.panel {
   max-width: 800px;
   /* border: 1px solid var(--gray-800); */
   padding-left: 7rem;
@@ -241,6 +240,12 @@ a.active {
   width: 100%;
 
   margin-left: 30rem;
+}
+
+.calender-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  /* grid-auto-rows: 100px; */
 }
 
 .main-content-heading {
@@ -664,8 +669,7 @@ a.active {
     max-width: 200px;
   }
 
-  #inbox,
-  #calender {
+  .panel {
     margin-left: 18rem;
   }
   .js-content {
@@ -702,8 +706,7 @@ a.active {
 
     z-index: 999;
   }
-  #inbox,
-  #calender {
+  .panel {
     margin: 0;
     padding: 1rem;
   }

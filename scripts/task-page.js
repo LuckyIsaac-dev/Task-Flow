@@ -257,3 +257,7 @@ navLinks.forEach((navlink) => {
     sideBarOverlay.classList.remove("side-bar-show");
   });
 });
+
+const d = new Date("2026-06-16").getFullYear();
+
+console.log(d.toString());
