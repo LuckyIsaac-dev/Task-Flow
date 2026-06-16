@@ -232,7 +232,8 @@ a.active {
 
 /*----------------- MAIN PAGE AND CONTENT----------------- */
 
-#inbox {
+#inbox,
+#calender {
   max-width: 800px;
   /* border: 1px solid var(--gray-800); */
   padding-left: 7rem;
@@ -255,6 +256,7 @@ a.active {
   cursor: pointer;
   visibility: hidden;
   z-index: 1000;
+  padding-left: 1rem;
 }
 .hamburgar-menu2 {
   width: 30px;
@@ -662,7 +664,8 @@ a.active {
     max-width: 200px;
   }
 
-  .main-content {
+  #inbox,
+  #calender {
     margin-left: 18rem;
   }
   .js-content {
@@ -691,7 +694,7 @@ a.active {
   }
   .nav {
     pointer-events: none;
-    transition: all 0.5s ease-in;
+    transition: all 0.3s ease-in;
     left: -310px;
     max-width: 310px;
 
@@ -699,7 +702,8 @@ a.active {
 
     z-index: 999;
   }
-  .main-content {
+  #inbox,
+  #calender {
     margin: 0;
     padding: 1rem;
   }

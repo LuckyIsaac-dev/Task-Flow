@@ -237,15 +237,15 @@ sideBarOverlay.addEventListener("click", () => {
 const panels = document.querySelectorAll(".panel");
 const navLinks = document.querySelectorAll(".nav-link");
 
-navLinks.forEach((nav) => {
-  nav.addEventListener("click", () => {
+navLinks.forEach((navlink) => {
+  navlink.addEventListener("click", () => {
     navLinks.forEach((l) => {
       l.classList.remove("active");
     });
 
-    nav.classList.add("active");
+    navlink.classList.add("active");
 
-    const target = nav.getAttribute("data-target");
+    const target = navlink.getAttribute("data-target");
     console.log(target);
 
     panels.forEach((panel) => {
@@ -253,5 +253,7 @@ navLinks.forEach((nav) => {
     });
 
     document.getElementById(target).classList.add("active");
+    nav.classList.remove("nav-show");
+    sideBarOverlay.classList.remove("side-bar-show");
   });
 });
