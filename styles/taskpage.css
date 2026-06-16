@@ -244,10 +244,21 @@ a.active {
 
 .calender-grid {
   display: grid;
-  grid-template-columns: repeat(7, 100px);
-  /* grid-auto-rows: 100px; */
-  background-color: var(--gray-800);
-  width: 100%;
+
+  grid-template-columns: repeat(7, 80px);
+  grid-auto-rows: 80px;
+  /* background-color: var(--gray-100); */
+  gap: 1rem;
+  padding: 1.5rem;
+}
+.day {
+  border: 1px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.day.current-date {
+  border: 1px solid var(--gray-100);
 }
 .page-date {
   display: flex;

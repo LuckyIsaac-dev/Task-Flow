@@ -246,7 +246,6 @@ navLinks.forEach((navlink) => {
     navlink.classList.add("active");
 
     const target = navlink.getAttribute("data-target");
-    console.log(target);
 
     panels.forEach((panel) => {
       panel.classList.remove("active");
@@ -259,6 +258,17 @@ navLinks.forEach((navlink) => {
 });
 
 const d = new Date();
-
 document.querySelector(".date").innerHTML = d.toDateString().slice(0, 10);
-console.log("javascript".slice(4));
+
+function renderCalendar(year, month) {
+  const firstDay = new Date(year, month, 1).getDay(); // 0=Sun
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  let html = "";
+  for (let i = 0; i < firstDay; i++) html += '<div class="empty"></div>';
+  for (let d = 1; d <= daysInMonth; d++) html += `<div class="day">${d}</div>`;
+
+  document.querySelector(".calender-grid").innerHTML = html;
+}
+
+renderCalendar(2026, 5);
