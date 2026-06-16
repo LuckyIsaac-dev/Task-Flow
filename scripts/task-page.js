@@ -233,9 +233,25 @@ sideBarOverlay.addEventListener("click", () => {
   nav.classList.remove("nav-show");
   sideBarOverlay.classList.remove("side-bar-show");
 });
-let calender = document.getElementById("calender");
-document.querySelector(".calender-page").addEventListener("click", () => {
-  console.log("calender");
-  calender.style.display = "initial";
-  console.log(calender);
+
+const panels = document.querySelectorAll(".panel");
+const navLinks = document.querySelectorAll(".nav-link");
+
+navLinks.forEach((nav) => {
+  nav.addEventListener("click", () => {
+    navLinks.forEach((l) => {
+      l.classList.remove("active");
+    });
+
+    nav.classList.add("active");
+
+    const target = nav.getAttribute("data-target");
+    console.log(target);
+
+    panels.forEach((panel) => {
+      panel.classList.remove("active");
+    });
+
+    document.getElementById(target).classList.add("active");
+  });
 });

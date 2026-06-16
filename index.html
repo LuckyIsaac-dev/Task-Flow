@@ -54,32 +54,32 @@
         /> -->
       </div>
 
-      <a href="taskpage.html" target="_blank">
+      <a data-target="inbox" class="nav-link active">
         <div class="nav-links">
           <img class="nav-icon" src="images/icons8-inbox-50.png" alt="" />
           <span> Inbox </span>
         </div>
       </a>
-      <a href="">
+      <a data-target="today" class="nav-link">
         <div class="nav-links">
           <img class="nav-svg" src="images/calendar-check.svg" alt="" />
           <span> Today </span>
         </div>
       </a>
-      <a href="">
+      <a data-target="upcoming" class="nav-link">
         <div class="nav-links">
           <img class="nav-svg" src="images/calendar-arrow-up.svg" alt="" />
 
           <span>Upcoming</span>
         </div>
       </a>
-      <a href="#calender" class="calender-page">
+      <a data-target="calender" class="nav-link">
         <div class="nav-links">
           <img class="nav-svg" src="images/calendar.svg" alt="" />
           <span>Calender</span>
         </div>
       </a>
-      <a href="">
+      <a data-target="analysis" class="nav-link">
         <div class="nav-links">
           <img class="nav-svg" src="images/chart-line-up.svg" alt="analysis" />
           <span>Analysis</span>
@@ -92,12 +92,11 @@
         </div>
       </a>
     </nav>
-    <main class="main-page">
-      <!-- OVERLAY CONTAINER AND SEARCH INPUT -->
-      <div class="search">
-        <input type="text" placeholder="search for task" />
-      </div>
-      <div class="main-content">
+    <main>
+      <div id="inbox" class="panel active">
+        <div class="search">
+          <input type="text" placeholder="search for task" />
+        </div>
         <img
           class="hamburgar-menu"
           src="images/menu-burger.png"
@@ -147,7 +146,9 @@
           </div>
         </div>
       </div>
-      <div id="calender">
+
+      <div id="calender" class="panel">
+        <h3>Calender</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus
           magnam quis dolore aliquam sit in eaque tenetur autem, harum eveniet
