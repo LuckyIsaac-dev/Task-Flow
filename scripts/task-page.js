@@ -259,14 +259,20 @@ navLinks.forEach((navlink) => {
 
 const d = new Date();
 document.querySelector(".date").innerHTML = d.toDateString().slice(0, 10);
+let currentDate = d.getDate();
 
 function renderCalendar(year, month) {
-  const firstDay = new Date(year, month, 1).getDay(); // 0=Sun
+  const firstDay = new Date(year, month, 1).getDay();
+
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
   let html = "";
   for (let i = 0; i < firstDay; i++) html += '<div class="empty"></div>';
-  for (let d = 1; d <= daysInMonth; d++) html += `<div class="day">${d}</div>`;
+  for (let d = 1; d <= daysInMonth; d++) {
+    d === currentDate
+      ? (html += `<div class="day current-date">${d}</div>`)
+      : (html += `<div class="day">${d}</div>`);
+  }
 
   document.querySelector(".calender-grid").innerHTML = html;
 }
