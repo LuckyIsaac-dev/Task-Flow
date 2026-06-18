@@ -49,3 +49,43 @@ Base: #6c63FF (Light Purple)
   --gray-900: #16161d;
   --gray-950: #08080c;
 }
+.calender-grid {
+  display: grid;
+
+  grid-template-columns: repeat(7, 50px);
+  grid-auto-rows: 50px;
+  /* background-color: var(--gray-100); */
+  gap: 3rem;
+  padding: 1.5rem;
+}
+
+.calender-header {
+  display: flex;
+  /* justify-content: space-around; */
+
+  padding-top: 1rem;
+  padding-left: 3rem;
+}
+.calender-main-heading {
+  padding-bottom: 2.5rem;
+}
+
+.calender-days {
+  display: grid;
+  color: var(--gray-800);
+
+  grid-template-columns: repeat(7, 50px);
+
+  gap: 3rem;
+
+  justify-content: start;
+}
+.day {
+  border: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--gray-700);
+  font-size: 1.2rem;
+}
