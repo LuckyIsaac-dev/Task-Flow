@@ -85,6 +85,7 @@ html {
 body {
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 h1,
@@ -251,6 +252,41 @@ a.active {
   gap: 3rem;
   padding: 1.5rem;
 }
+.calender-model {
+  display: grid;
+
+  border-radius: 10px;
+  box-shadow: 5px 8px 30px rgba(0, 0, 0, 0.1);
+  grid-template-columns: repeat(7, 30px);
+  grid-auto-rows: 30px;
+  /* background-color: var(--gray-100); */
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--gray-200);
+  max-width: 300px;
+  justify-content: center;
+  top: -70px;
+  left: -10px;
+
+  /* visibility: hidden; */
+  margin-bottom: 2rem;
+  position: absolute;
+  background-color: var(--gray-50);
+  z-index: 999;
+}
+
+.small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--gray-700);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.day:hover {
+  background-color: var(--gray-200);
+}
 
 .calender-header {
   display: flex;
@@ -274,12 +310,14 @@ a.active {
   justify-content: start;
 }
 .day {
-  border: 1px solid var(--gray-200);
+  /* border: 1px solid var(--gray-200); */
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   color: var(--gray-700);
+  cursor: pointer;
+  transition: background-color 0.3s;
   font-size: 1.2rem;
 }
 .date-input {
@@ -300,7 +338,7 @@ a.active {
   color: var(--gray-500);
 }
 .main-content-heading {
-  padding-top: 5rem;
+  padding-top: 4rem;
   margin-left: 2rem;
   padding-bottom: 3rem;
 }
@@ -389,6 +427,7 @@ a.active {
 .add-task-card {
   width: 90%;
   border: var(--gray-400) solid 1px;
+  background-color: var(--gray-950);
   min-height: 10rem;
   gap: 3rem;
   border-radius: 15px;
@@ -396,6 +435,7 @@ a.active {
   pointer-events: none;
   transition: all 0.5s ease;
   margin-bottom: 1.8rem;
+  position: relative;
 }
 
 .todo-container {
