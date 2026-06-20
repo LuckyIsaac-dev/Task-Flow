@@ -243,7 +243,7 @@ a.active {
   margin-left: 30rem;
 }
 
-.calender-grid {
+.calendar-grid {
   display: grid;
 
   grid-template-columns: repeat(7, 50px);
@@ -252,7 +252,9 @@ a.active {
   gap: 3rem;
   padding: 1.5rem;
 }
-.calender-model {
+.date-setting:hover .calendar-modal {
+}
+.calendar-modal {
   display: grid;
 
   border-radius: 10px;
@@ -268,7 +270,7 @@ a.active {
   top: -70px;
   left: -10px;
 
-  /* visibility: hidden; */
+  visibility: hidden;
   margin-bottom: 2rem;
   position: absolute;
   background-color: var(--gray-50);
@@ -288,18 +290,18 @@ a.active {
   background-color: var(--gray-200);
 }
 
-.calender-header {
+.calendar-header {
   display: flex;
   /* justify-content: space-around; */
 
   padding-top: 1rem;
   padding-left: 3rem;
 }
-.calender-main-heading {
+.calendar-main-heading {
   padding-bottom: 2.5rem;
 }
 
-.calender-days {
+.calendar-days {
   display: grid;
   color: var(--gray-800);
 

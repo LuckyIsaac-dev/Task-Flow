@@ -9,7 +9,7 @@
 ---------------------------OR ---------------
 DISPLAY THE INPUT WHEN THERE IS NO  TASK YET WITH THE MAIN BUTTON IN A CONTAINER
 */
-
+const d = new Date();
 const id = crypto.randomUUID();
 const modelInput = document.getElementById("editing-input");
 
@@ -27,7 +27,8 @@ const sideBarOverlay = document.querySelector(".sidebar-overlay");
 const nav = document.querySelector(".nav");
 const menu = document.querySelector(".hamburgar-menu");
 const navMenu = document.querySelector(".hamburgar-menu2");
-
+const dateSettings = document.querySelector(".date-setting");
+const calendarModal = document.querySelector(".calendar-modal");
 let todoList;
 todoList = JSON.parse(localStorage.getItem("todolist")) || [];
 
@@ -44,22 +45,51 @@ document.querySelector(".save").addEventListener("click", () => {
   saveToStorage();
   overlayContainer.classList.remove("show");
 });
+dateSettings.addEventListener("click", () => {
+  calendarModal.classList.add("show");
+});
 
-todoInput.addEventListener("keydown", (e) => {
+function setdate(e) {
+  const day = e.target.closest(".day");
+  const year = d.getFullYear();
+  const month = d.getMonth();
+  if (day) {
+    const days = day.dataset.calendarDay;
+
+    const date = new Date(year, month, days).toDateString();
+
+    console.log(date);
+    return date;
+  }
+}
+function addTask(e) {
+  let taskDate;
+  calendarModal.addEventListener("click", () => {
+    console.log("hellow");
+    console.log(setdate());
+    console.log(taskDate);
+  });
+
   if (todoInput.value === "") return;
 
-  if (e.key === "Enter") {
-    let userTask = todoInput.value;
-    // we get the user data and store it
-    // we store each  data with a unique id
-    todoList.push({
-      userTask,
-      id: crypto.randomUUID(),
-    });
-    saveToStorage();
+  let userTask = todoInput.value;
+  // we get the user data and store it
+  // we store each  data with a unique id
+  todoList.push({
+    userTask,
+    id: crypto.randomUUID(),
+    date: taskDate,
+  });
+  console.log(todoList);
+  console.log(taskDate);
+  saveToStorage();
 
-    todoInput.value = "";
-    renderTodo();
+  todoInput.value = "";
+  renderTodo();
+}
+todoInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addTask();
   }
 });
 
@@ -72,24 +102,13 @@ jsCancelTask.addEventListener("click", () => {
 
 renderBtn.addEventListener("click", () => {
   addTaskCard.classList.add("show");
+
   todoInput.classList.add("show");
   renderBtn.classList.add("hidden");
 });
 
 document.querySelector(".js-add-task").addEventListener("click", () => {
-  if (todoInput.value === "") return;
-  let userTask = todoInput.value;
-  // we get the user data and store it
-
-  // we store each  data with a unique id
-  todoList.push({
-    userTask,
-    id: crypto.randomUUID(),
-  });
-
-  todoInput.value = "";
-  renderTodo();
-  saveToStorage();
+  addTask();
 });
 
 // for each data we generate a html to the user
@@ -257,7 +276,6 @@ navLinks.forEach((navlink) => {
   });
 });
 
-const d = new Date();
 document.querySelector(".date").innerHTML = d.toDateString().slice(0, 10);
 let currentDate = d.getDate();
 
@@ -270,11 +288,29 @@ function renderCalendar(year, month) {
   for (let i = 0; i < firstDay; i++) html += '<div class="empty"></div>';
   for (let d = 1; d <= daysInMonth; d++) {
     d === currentDate
-      ? (html += `<div class="day current-date">${d}</div>`)
-      : (html += `<div class="day">${d}</div>`);
+      ? (html += `<div class="day current-date" data-calendar-day="${d}">${d}</div>`)
+      : (html += `<div class="day" data-calendar-day="${d}">${d}</div>`);
   }
 
-  document.querySelector(".calender-grid").innerHTML = html;
+  document.querySelector(".calendar-grid").innerHTML = html;
+  document.querySelector(".calendar-modal").innerHTML += html;
 }
 
 renderCalendar(2026, 5);
+// console.log(d.getMonth());
+// console.log(d.getFullYear());
+// console.log(d.getDate());
+// function setDate(year, month, days) {
+//   let date = calendarModal.addEventListener("click", (e) => {
+//     const day = e.target.closest(".day");
+//     if (day) {
+//       days = day.dataset.calendarDay;
+//       date = new Date(year, month, days);
+
+//       console.log(date);
+//       return date.toDateString();
+//     }
+//   });
+//   console.log(date);
+//   return date;
+// }
