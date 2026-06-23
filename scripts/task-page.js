@@ -69,7 +69,6 @@ function setdate(e) {
 let taskDate;
 calendarModal.addEventListener("click", (e) => {
   taskDate = setdate(e);
-  console.log(taskDate);
 });
 function addTask(e) {
   if (todoInput.value === "") return;
@@ -82,11 +81,11 @@ function addTask(e) {
     id: crypto.randomUUID(),
     date: taskDate,
   });
-  console.log(todoList);
-  console.log(taskDate);
+
   saveToStorage();
 
   todoInput.value = "";
+
   renderTodo();
 }
 todoInput.addEventListener("keydown", (e) => {
