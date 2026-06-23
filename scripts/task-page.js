@@ -49,6 +49,10 @@ dateSettings.addEventListener("click", () => {
   calendarModal.classList.add("show");
 });
 
+// calendarModal.addEventListener("click", (e) => {
+//   let taskDate = setdate(e);
+//   console.log(taskDate);
+// });
 function setdate(e) {
   const day = e.target.closest(".day");
   const year = d.getFullYear();
@@ -58,18 +62,16 @@ function setdate(e) {
 
     const date = new Date(year, month, days).toDateString();
 
-    console.log(date);
     return date;
   }
 }
-function addTask(e) {
-  let taskDate;
-  calendarModal.addEventListener("click", () => {
-    console.log("hellow");
-    console.log(setdate());
-    console.log(taskDate);
-  });
 
+let taskDate;
+calendarModal.addEventListener("click", (e) => {
+  taskDate = setdate(e);
+  console.log(taskDate);
+});
+function addTask(e) {
   if (todoInput.value === "") return;
 
   let userTask = todoInput.value;
